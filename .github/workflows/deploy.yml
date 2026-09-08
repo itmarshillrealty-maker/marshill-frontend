@@ -21,6 +21,8 @@ jobs:
 
       - name: Build static export
         run: npm run build
+        env:
+          WORDPRESS_API_URL: ${{ secrets.WORDPRESS_API_URL }}
 
       - name: Deploy via rsync
         uses: burnett01/rsync-deployments@7.0.1
