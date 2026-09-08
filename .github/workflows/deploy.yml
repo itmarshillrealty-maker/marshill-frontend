@@ -1,0 +1,33 @@
+name: Deploy to Bluehost
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        run: npm run build
+
+      - name: Deploy via rsync
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avzr --delete --exclude=wp
+          path: out/
+          remote_path: /home/marshil1/public_html/beta.marshillpropertymanagement.com/
+          remote_host: marshillpropertymanagement.com
+          remote_user: marshil1
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
