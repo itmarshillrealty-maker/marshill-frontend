@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const services = [
   {
@@ -121,11 +121,27 @@ const filters = [
   { key: "investment", label: "Investment Properties" },
 ];
 
+const heroImages = [
+  "/hero/hero-1.jpg",
+  "/hero/hero-2.jpg",
+  "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600&auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=1600&auto=format&fit=crop&q=80",
+];
+const HERO_INTERVAL_MS = 5000;
+
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [current, setCurrent] = useState(0);
+  const [heroIndex, setHeroIndex] = useState(0);
 
   const show = (i: number) => setCurrent((i + reviews.length) % reviews.length);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setHeroIndex((i) => (i + 1) % heroImages.length);
+    }, HERO_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <>
@@ -175,8 +191,11 @@ export default function Home() {
         .btn-solid{ background:var(--blue); color:#fff; }
         .btn-red{ background:var(--red); color:#fff; }
         @media (max-width:860px){ nav{ display:none; } }
-        .hero{ position:relative; min-height:520px; display:flex; align-items:center; justify-content:center; text-align:center; background-image: linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&auto=format&fit=crop&q=80'); background-size:cover; background-position:center; }
-        .hero-inner{ max-width:640px; padding:0 24px; }
+        .hero{ position:relative; min-height:520px; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden; }
+        .hero-bg{ position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity 1.6s ease-in-out; }
+        .hero-bg.is-active{ opacity:1; }
+        .hero-wash{ position:absolute; inset:0; background:linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)); }
+        .hero-inner{ position:relative; z-index:2; max-width:640px; padding:0 24px; }
         .eyebrow{ font-size:12px; font-weight:600; letter-spacing:1.5px; color:var(--accent-orange); text-transform:uppercase; margin-bottom:14px; }
         .hero h1{ font-size:38px; font-weight:600; color:var(--blue-deep); line-height:1.2; margin-bottom:16px; text-shadow:0 1px 6px rgba(255,255,255,0.6); }
         .hero p{ font-size:16px; color:var(--ink); margin-bottom:28px; text-shadow:0 1px 6px rgba(255,255,255,0.6); }
@@ -303,6 +322,15 @@ export default function Home() {
       </header>
 
       <section className="hero">
+        {heroImages.map((src, i) => (
+          <div
+            key={src}
+            className={`hero-bg${i === heroIndex ? " is-active" : ""}`}
+            style={{ backgroundImage: `url('${src}')` }}
+            aria-hidden={i !== heroIndex}
+          />
+        ))}
+        <div className="hero-wash" />
         <div className="hero-inner">
           <div className="eyebrow">Founded in 2003 · Serving Virginia</div>
           <h1>Save time and money with a team that manages the details</h1>
