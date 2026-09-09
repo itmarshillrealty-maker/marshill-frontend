@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const services = [
@@ -180,8 +181,10 @@ export default function Home() {
         .topbar-social a:hover{ color:#fff; }
         @media (max-width:640px){ .topbar-left{ font-size:11px; gap:12px; } }
         header{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--border); }
-        .header-inner{ display:flex; align-items:center; justify-content:space-between; padding:12px 32px; }
+        .header-inner{ display:flex; align-items:center; justify-content:space-between; padding:10px 32px; }
         .brand{ display:flex; align-items:center; gap:10px; font-size:18px; font-weight:600; color:var(--blue); letter-spacing:-0.2px; }
+        .brand-logo{ display:block; height:68px; width:auto; }
+        @media (max-width:640px){ .brand-logo{ height:50px; } }
         nav{ display:flex; align-items:center; gap:18px; font-size:13px; font-weight:500; color:var(--ink); white-space:nowrap; }
         nav a{ display:inline-flex; align-items:center; gap:3px; }
         nav a:hover{ color:var(--blue); }
@@ -307,7 +310,10 @@ export default function Home() {
 
       <header>
         <div className="header-inner">
-          <div className="brand">Mars Hill Realty Group</div>
+          <Link className="brand" href="/" aria-label="Mars Hill Realty Group home">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/brand/logo.png" alt="Mars Hill Realty Group" className="brand-logo" />
+          </Link>
           <nav>
             <a href="#">Home</a>
             <a href="#">About Us <i className="ti ti-chevron-down" /></a>
