@@ -3,7 +3,9 @@ name: Deploy to Bluehost
 on:
   push:
     branches: [main]
-
+  repository_dispatch:
+    types: [wp_content_updated]
+    
 jobs:
   deploy:
     runs-on: ubuntu-latest
