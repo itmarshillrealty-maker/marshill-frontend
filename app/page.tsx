@@ -182,15 +182,17 @@ export default function Home() {
         header{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--border); }
         .header-inner{ display:flex; align-items:center; justify-content:space-between; padding:12px 32px; }
         .brand{ display:flex; align-items:center; gap:10px; font-size:18px; font-weight:600; color:var(--blue); letter-spacing:-0.2px; }
-        nav{ display:flex; gap:28px; font-size:14px; font-weight:500; color:var(--ink); }
+        nav{ display:flex; align-items:center; gap:18px; font-size:13px; font-weight:500; color:var(--ink); white-space:nowrap; }
+        nav a{ display:inline-flex; align-items:center; gap:3px; }
         nav a:hover{ color:var(--blue); }
+        nav .ti-chevron-down{ font-size:10px; color:var(--ink-soft); }
         .header-actions{ display:flex; gap:10px; }
         .btn{ display:inline-block; font-size:13px; font-weight:600; padding:9px 16px; border-radius:5px; cursor:pointer; border:1px solid transparent; transition:opacity .15s; }
         .btn:hover{ opacity:0.88; }
         .btn-outline{ border-color:var(--blue); color:var(--blue); background:transparent; }
         .btn-solid{ background:var(--blue); color:#fff; }
         .btn-red{ background:var(--red); color:#fff; }
-        @media (max-width:860px){ nav{ display:none; } }
+        @media (max-width:1140px){ nav{ display:none; } }
         .hero{ position:relative; min-height:520px; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden; }
         .hero-bg{ position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity 1.6s ease-in-out; }
         .hero-bg.is-active{ opacity:1; }
@@ -307,12 +309,14 @@ export default function Home() {
         <div className="header-inner">
           <div className="brand">Mars Hill Realty Group</div>
           <nav>
-            <a href="#">Owners</a>
-            <a href="#">Residents</a>
-            <a href="#">Services</a>
-            <a href="#">Rental Listings</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="#">Home</a>
+            <a href="#">About Us <i className="ti ti-chevron-down" /></a>
+            <a href="#">Services <i className="ti ti-chevron-down" /></a>
+            <a href="#">Owners <i className="ti ti-chevron-down" /></a>
+            <a href="#">Residents <i className="ti ti-chevron-down" /></a>
+            <a href="#">Partner Club <i className="ti ti-chevron-down" /></a>
+            <a href="#">Rental Listings <i className="ti ti-chevron-down" /></a>
+            <a href="#">Mars Meals</a>
           </nav>
           <div className="header-actions">
             <a className="btn btn-outline" href="#">Owner login</a>
