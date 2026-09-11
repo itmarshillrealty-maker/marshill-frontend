@@ -265,6 +265,15 @@ export default function Home() {
         input, textarea{ width:100%; font-family:inherit; font-size:14px; color:var(--ink); padding:11px 12px; border:1px solid var(--border); border-radius:5px; background:#fbfdff; }
         input:focus, textarea:focus{ outline:none; border-color:var(--blue-mid); }
         textarea{ min-height:90px; resize:vertical; margin-bottom:16px; }
+        .consent-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; font-size:13px; color:var(--ink); margin-bottom:16px; }
+        .consent-row .required{ color:var(--red); }
+        .consent-option{ display:flex; align-items:center; gap:6px; white-space:nowrap; font-weight:500; }
+        .consent-option input{ width:auto; accent-color:var(--blue); }
+        .recaptcha-placeholder{ display:flex; align-items:center; gap:8px; width:fit-content; padding:10px 14px; margin-bottom:16px; border:1px dashed var(--border); border-radius:5px; background:#fbfdff; font-size:12px; color:var(--ink-soft); }
+        .send-row{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+        .send-row .send-divider{ font-size:13px; font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:1px; }
+        .send-row .send-call{ font-size:14px; color:var(--ink); }
+        .send-row .send-call a{ font-weight:600; color:var(--blue); }
         .contact-photo-col{ background-image: linear-gradient(rgba(18,58,102,0.15), rgba(18,58,102,0.15)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&auto=format&fit=crop&q=80'); background-size:cover; background-position:center; }
         @media (max-width:860px){ .contact-section{ grid-template-columns:1fr; } .contact-photo-col{ min-height:220px; } .form-row, .form-row.cols-3{ grid-template-columns:1fr; } }
         .cta-band{ padding:64px 32px; text-align:center; }
@@ -456,7 +465,7 @@ export default function Home() {
       <div className="contact-section">
         <div className="contact-form-col">
           <div className="section-label">Interested in finding out more?</div>
-          <h2>Contact us today</h2>
+          <h2>Contact Us Today!</h2>
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="form-row">
               <input type="text" placeholder="Name" required />
@@ -464,15 +473,29 @@ export default function Home() {
             </div>
             <div className="form-row">
               <input type="email" placeholder="Email" required />
-              <input type="text" placeholder="Street address" />
+              <input type="text" placeholder="Street" />
             </div>
             <div className="form-row cols-3">
               <input type="text" placeholder="City" />
               <input type="text" placeholder="State" />
-              <input type="text" placeholder="Zip code" />
+              <input type="text" placeholder="Zip Code" />
             </div>
             <textarea placeholder="Comments" />
-            <button type="submit" className="btn btn-red" style={{ padding: "12px 30px", fontSize: 14 }}>Send</button>
+            <div className="consent-row">
+              <span>I agree to be contacted by Mars Hill Realty Group <span className="required">*</span></span>
+              <label className="consent-option">
+                <input type="checkbox" required /> Yes
+              </label>
+            </div>
+            <div className="recaptcha-placeholder">
+              <i className="ti ti-shield-check" />
+              reCAPTCHA (needs your Google site key to go live)
+            </div>
+            <div className="send-row">
+              <button type="submit" className="btn btn-red" style={{ padding: "12px 30px", fontSize: 14 }}>Send</button>
+              <span className="send-divider">Or</span>
+              <span className="send-call">Call: <a href="tel:7037769223">703.776.9223</a></span>
+            </div>
           </form>
         </div>
         <div className="contact-photo-col" />
