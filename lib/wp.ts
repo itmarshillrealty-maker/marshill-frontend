@@ -47,7 +47,11 @@ export type HomeContent = {
   filters: ListingFilter[];
 };
 
+// WORDPRESS_API_URL is the name already used by .github/workflows/deploy.yml
+// (passed in from the WORDPRESS_API_URL repo secret) — WP_API_BASE is kept
+// as an alternate name so a local .env.local can use either.
 const WP_API_BASE =
+  process.env.WORDPRESS_API_URL ||
   process.env.WP_API_BASE ||
   "https://beta.marshillpropertymanagement.com/wp/wp-json/wp/v2";
 
