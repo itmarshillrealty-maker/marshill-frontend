@@ -12,6 +12,30 @@ import type {
 
 const HERO_INTERVAL_MS = 5000;
 
+// Real trust/certification/military-service badges, pulled from the WordPress
+// media library (search "footer"). Each number below is the "Footer Badge N"
+// title WordPress assigned on original upload; picked the cleanest re-upload
+// (the June 2020 "-300" batch) for each, except #9 which got a later, higher-
+// quality replacement in November 2020.
+const FOOTER_BADGES = [
+  { id: 1, alt: "Property Peace of Mind Guarantee", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-1-300.jpg" },
+  { id: 2, alt: "Rented in 60 Days Guarantee", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-2-300.jpg" },
+  { id: 3, alt: "100% Satisfaction Guarantee", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-3-300.jpg" },
+  { id: 4, alt: "Tenant Replacement Guarantee", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-4-300.jpg" },
+  { id: 5, alt: "Eviction Free Guarantee", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-5-300.jpg" },
+  { id: 6, alt: "Mars Hill Realty Group certification", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-6-300.jpg" },
+  { id: 7, alt: "Certified Residential Specialist (CRS)", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-7-300.jpg" },
+  { id: 8, alt: "Graduate, REALTOR Institute (GRI)", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-8-300.jpg" },
+  { id: 9, alt: "Proud to have served — military veteran badge", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/11/Footer-Badge-9-300-JF.png" },
+  { id: 10, alt: "Certified Negotiation Expert (CNE)", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-10-300.png" },
+  { id: 11, alt: "National Association of Residential Property Managers (NARPM)", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-11-300.png" },
+  { id: 12, alt: "Operation Iraqi Freedom veteran badge", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-12-300.jpeg" },
+  { id: 13, alt: "Residential Construction Certified", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-13-300.jpg" },
+  { id: 14, alt: "Texas Association of Realtors member", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-14-300.jpg" },
+  { id: 15, alt: "Equal Housing Opportunity", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-15-300.jpg" },
+  { id: 16, alt: "REALTOR", image: "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/06/Footer-Badge-16-300.jpg" },
+];
+
 type Props = {
   heroSlides: HeroSlide[];
   services: ServiceCard[];
@@ -177,17 +201,14 @@ export default function HomeClient({
         .cta-band h2{ font-size:24px; font-weight:600; color:var(--ink); margin-bottom:10px; }
         .cta-band p{ font-size:14px; color:var(--ink-soft); margin-bottom:26px; }
         .guarantees-wrap{ padding:56px 32px; border-top:1px solid var(--border); }
-        .guarantees-inner{ max-width:1180px; margin:0 auto; display:flex; align-items:flex-start; justify-content:center; gap:28px; flex-wrap:wrap; }
-        .badge{ width:104px; text-align:center; }
-        .badge-star{ width:92px; height:92px; margin:0 auto; position:relative; background:#e3a83d; clip-path: polygon(50% 0%, 61% 12%, 75% 2%, 78% 18%, 94% 15%, 90% 31%, 100% 40%, 86% 47%, 92% 62%, 76% 60%, 74% 76%, 61% 68%, 50% 82%, 39% 68%, 26% 76%, 24% 60%, 8% 62%, 14% 47%, 0% 40%, 10% 31%, 6% 15%, 22% 18%, 25% 2%, 39% 12%); display:flex; align-items:center; justify-content:center; }
-        .badge-star i{ position:absolute; top:20px; font-size:15px; color:var(--blue-deep); }
-        .badge-ribbon{ position:absolute; left:6px; right:6px; top:44px; background:var(--blue-deep); color:#fff; font-size:9px; font-weight:700; letter-spacing:0.3px; line-height:1.3; padding:5px 2px; text-transform:uppercase; }
-        .badge-sub{ font-size:8px; font-weight:700; letter-spacing:0.5px; color:var(--ink-soft); text-transform:uppercase; margin-top:4px; }
-        .credential{ display:flex; align-items:center; gap:10px; padding-left:8px; border-left:1px solid var(--border); }
-        .credential-shield{ width:44px; height:50px; background:var(--blue-deep); color:#fff; font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%); }
-        .credential-text{ font-size:12px; font-weight:600; color:var(--ink); line-height:1.4; }
-        .credential-text span{ display:block; font-size:10px; font-weight:500; color:var(--ink-soft); }
-        @media (max-width:640px){ .guarantees-inner{ gap:18px; } .credential{ border-left:none; padding-left:0; width:100%; justify-content:center; margin-top:12px; } }
+        .guarantees-inner{ max-width:1180px; margin:0 auto; }
+        .badge-marquee{ overflow:hidden; -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+        .badge-track{ display:flex; align-items:center; gap:56px; width:max-content; animation:badge-scroll 46s linear infinite; }
+        .badge-marquee:hover .badge-track{ animation-play-state:paused; }
+        .badge-track img{ height:60px; width:auto; max-width:140px; object-fit:contain; flex-shrink:0; filter:grayscale(0.2); opacity:0.85; transition:opacity .2s ease, filter .2s ease; }
+        .badge-track img:hover{ opacity:1; filter:none; }
+        @keyframes badge-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+        @media (prefers-reduced-motion: reduce){ .badge-track{ animation:none; flex-wrap:wrap; justify-content:center; } }
         footer{ background:var(--blue-deep); color:#cfe0f2; padding:48px 32px 24px; }
         .footer-inner{ max-width:1180px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px; padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,0.12); }
         .footer-inner h4{ font-size:13px; color:#fff; font-weight:600; margin-bottom:14px; letter-spacing:0.5px; }
@@ -423,30 +444,15 @@ export default function HomeClient({
       </div>
 
       <div className="guarantees-wrap">
+        <div className="section-label">Trusted &amp; certified</div>
         <div className="guarantees-inner">
-          <div className="badge">
-            <div className="badge-star"><i className="ti ti-heart-handshake" /><div className="badge-ribbon">Peace of<br />mind</div></div>
-            <div className="badge-sub">Guarantee</div>
-          </div>
-          <div className="badge">
-            <div className="badge-star"><i className="ti ti-calendar-check" /><div className="badge-ribbon">Rented in<br />60 days</div></div>
-            <div className="badge-sub">Guarantee</div>
-          </div>
-          <div className="badge">
-            <div className="badge-star"><i className="ti ti-thumb-up" /><div className="badge-ribbon">100%<br />satisfaction</div></div>
-            <div className="badge-sub">Guarantee</div>
-          </div>
-          <div className="badge">
-            <div className="badge-star"><i className="ti ti-replace" /><div className="badge-ribbon">Tenant<br />replacement</div></div>
-            <div className="badge-sub">Guarantee</div>
-          </div>
-          <div className="badge">
-            <div className="badge-star"><i className="ti ti-gavel" /><div className="badge-ribbon">Eviction<br />free</div></div>
-            <div className="badge-sub">Guarantee</div>
-          </div>
-          <div className="credential">
-            <div className="credential-shield">CRS</div>
-            <div className="credential-text">Certified Residential<br />Specialist<span>Designated agents on staff</span></div>
+          <div className="badge-marquee">
+            <div className="badge-track">
+              {[...FOOTER_BADGES, ...FOOTER_BADGES].map((b, i) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={`${b.id}-${i}`} src={b.image} alt={b.alt} loading="lazy" />
+              ))}
+            </div>
           </div>
         </div>
       </div>
