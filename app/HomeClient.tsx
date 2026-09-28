@@ -200,12 +200,12 @@ export default function HomeClient({
         .cta-band{ padding:64px 32px; text-align:center; }
         .cta-band h2{ font-size:24px; font-weight:600; color:var(--ink); margin-bottom:10px; }
         .cta-band p{ font-size:14px; color:var(--ink-soft); margin-bottom:26px; }
-        .guarantees-wrap{ padding:56px 32px; border-top:1px solid var(--border); }
+        .guarantees-wrap{ padding:64px 32px; border-top:1px solid var(--border); }
         .guarantees-inner{ max-width:1180px; margin:0 auto; }
         .badge-marquee{ overflow:hidden; -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-        .badge-track{ display:flex; align-items:center; gap:56px; width:max-content; animation:badge-scroll 46s linear infinite; }
+        .badge-track{ display:flex; align-items:center; gap:64px; width:max-content; animation:badge-scroll 60s linear infinite; }
         .badge-marquee:hover .badge-track{ animation-play-state:paused; }
-        .badge-track img{ height:60px; width:auto; max-width:140px; object-fit:contain; flex-shrink:0; filter:grayscale(0.2); opacity:0.85; transition:opacity .2s ease, filter .2s ease; }
+        .badge-track img{ height:100px; width:auto; max-width:220px; object-fit:contain; flex-shrink:0; filter:grayscale(0.2); opacity:0.85; transition:opacity .2s ease, filter .2s ease; }
         .badge-track img:hover{ opacity:1; filter:none; }
         @keyframes badge-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
         @media (prefers-reduced-motion: reduce){ .badge-track{ animation:none; flex-wrap:wrap; justify-content:center; } }
