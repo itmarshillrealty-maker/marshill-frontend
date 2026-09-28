@@ -286,7 +286,7 @@ export default function HomeClient({
           <a className="btn btn-solid" href="#" style={{ marginTop: 8 }}>Meet the team</a>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&auto=format&fit=crop&q=80" alt="Mars Hill Realty Group team meeting" />
+        <img src="https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Welcome-to-Mars-Hill-570x570.jpg" alt="Welcome to Mars Hill Realty Group" />
       </section>
 
       <div className="stats">

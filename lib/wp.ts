@@ -71,14 +71,16 @@ const FALLBACK_HERO: HeroSlide[] = [
     eyebrow: "Founded in 2003 · Serving Virginia & Texas",
     headline: "Save Time And Money By Using Our Services",
     subtitle: "2,654 new renters enter the market every single day",
-    image: "/hero/hero-1.jpg",
+    image:
+      "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Slider-1-scaled-1.jpg",
   },
   {
     id: -2,
     eyebrow: "",
     headline: "While Mars Hill Manages The Details",
     subtitle: "Focus On Making Revenue On Your Investment",
-    image: "/hero/hero-2.jpg",
+    image:
+      "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Slider-2-scaled-1.jpeg",
   },
   {
     id: -3,
@@ -86,7 +88,7 @@ const FALLBACK_HERO: HeroSlide[] = [
     headline: "We Set The Standard For Property Management",
     subtitle: "See Why Our Clients Come Back Time and Time Again",
     image:
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600&auto=format&fit=crop&q=80",
+      "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Slider-3-scaled-1.jpg",
   },
   {
     id: -4,
@@ -94,21 +96,23 @@ const FALLBACK_HERO: HeroSlide[] = [
     headline: "Leave The Hard Work To Us",
     subtitle: "Take Back Control of Your Time",
     image:
-      "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=1600&auto=format&fit=crop&q=80",
+      "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Slider-4-scaled-1.jpg",
   },
   {
     id: -5,
     eyebrow: "",
     headline: "Experience The Mars Hill Difference",
     subtitle: "Property Management Saves Time and Money",
-    image: "/hero/hero-1.jpg",
+    image:
+      "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Slider-5-scaled-1.jpg",
   },
   {
     id: -6,
     eyebrow: "",
     headline: "Grow Your Investment Portfolio",
     subtitle: "Invest in DC Area and Austin, Texas Properties with Us",
-    image: "/hero/hero-2.jpg",
+    image:
+      "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Slider-6-scaled-1.jpg",
   },
 ];
 
