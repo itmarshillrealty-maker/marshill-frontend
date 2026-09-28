@@ -56,20 +56,59 @@ const WP_API_BASE =
   "https://beta.marshillpropertymanagement.com/wp/wp-json/wp/v2";
 
 // ---------------------------------------------------------------------
-// Fallback content — shown only when WordPress has nothing yet (fresh
-// install) or can't be reached while building. Replace/remove once real
-// entries exist under Hero Slides / Service Cards / Testimonials /
-// Property Listings in wp-admin.
+// Default content — the real copy from the old site, used until (and
+// unless) a matching entry exists under Hero Slides / Service Cards /
+// Testimonials in wp-admin, which take priority when present. Property
+// listings are the one exception left empty below: the old site's listing
+// photos weren't available, and showing stock photos next to real
+// addresses would misrepresent actual properties, so that section stays
+// off until real listings (with real photos) are added in wp-admin.
 // ---------------------------------------------------------------------
 
 const FALLBACK_HERO: HeroSlide[] = [
   {
     id: -1,
     eyebrow: "Founded in 2003 · Serving Virginia & Texas",
-    headline: "Save time and money with a team that manages the details",
-    subtitle:
-      "Full-service real estate and property management across Virginia and Texas — for owners who want peace of mind and residents who want a place to call home.",
+    headline: "Save Time And Money By Using Our Services",
+    subtitle: "2,654 new renters enter the market every single day",
     image: "/hero/hero-1.jpg",
+  },
+  {
+    id: -2,
+    eyebrow: "",
+    headline: "While Mars Hill Manages The Details",
+    subtitle: "Focus On Making Revenue On Your Investment",
+    image: "/hero/hero-2.jpg",
+  },
+  {
+    id: -3,
+    eyebrow: "",
+    headline: "We Set The Standard For Property Management",
+    subtitle: "See Why Our Clients Come Back Time and Time Again",
+    image:
+      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600&auto=format&fit=crop&q=80",
+  },
+  {
+    id: -4,
+    eyebrow: "",
+    headline: "Leave The Hard Work To Us",
+    subtitle: "Take Back Control of Your Time",
+    image:
+      "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=1600&auto=format&fit=crop&q=80",
+  },
+  {
+    id: -5,
+    eyebrow: "",
+    headline: "Experience The Mars Hill Difference",
+    subtitle: "Property Management Saves Time and Money",
+    image: "/hero/hero-1.jpg",
+  },
+  {
+    id: -6,
+    eyebrow: "",
+    headline: "Grow Your Investment Portfolio",
+    subtitle: "Invest in DC Area and Austin, Texas Properties with Us",
+    image: "/hero/hero-2.jpg",
   },
 ];
 
@@ -77,37 +116,101 @@ const FALLBACK_SERVICES: ServiceCard[] = [
   {
     id: -1,
     icon: "ti-file-text",
-    title: "New renters apply now",
-    text: "100% paperless process. Decisions within 2 business days.",
+    title: "New Renters Apply Now",
+    text: "New renters in Virginia, Maryland, Washington D.C. and Texas can apply by following these 5 simple steps. 100% paperless process, decisions within 2 business days.",
   },
   {
     id: -2,
     icon: "ti-home-dollar",
-    title: "Property management",
-    text: "Risk-reducing guarantees and a network of quality vendors.",
+    title: "Property Management",
+    text: "We offer risk-reducing guarantees, turn-key solutions, and a network of quality service providers that result in a hassle-free real estate investment.",
   },
   {
     id: -3,
     icon: "ti-key",
-    title: "Buying and selling",
-    text: "Skilled negotiators representing your interests at every step.",
+    title: "Buying and Selling",
+    text: "Skilled negotiators representing your interests at every step, from listing to closing.",
   },
   {
     id: -4,
     icon: "ti-building-bank",
-    title: "Investment property",
-    text: "Strategy built on market data and years of local knowledge.",
+    title: "Investment",
+    text: "Strategy built on market data and years of local knowledge across the DC area and Central Texas.",
   },
 ];
 
 const FALLBACK_TESTIMONIALS: Testimonial[] = [
   {
     id: -1,
-    initials: "MH",
-    name: "Add your first testimonial",
-    role: "wp-admin → Testimonials",
+    initials: "JP",
+    name: "Jessica Prior",
+    role: "Landlord",
     quote:
-      "This is placeholder text. Add real reviews under Testimonials in wp-admin and they'll replace this automatically on the next deploy.",
+      "This property management company has been nothing but great! They cost more than others out there, but I learned first hand what can happen when you go with the cheaper property manager. Edward took my call and answered all the questions I had, sent me information, and got the process started with them managing our property all within a week of my initial contact...I have no doubt the experience will continue to be nothing but good, and look forward to growing my real estate portfolio with them!",
+  },
+  {
+    id: -2,
+    initials: "SP",
+    name: "Suchit Patel",
+    role: "Landlord",
+    quote:
+      "I have been using Mars Hill to rent out my properties for the last three months and they have been amazing to work with. All the employees are really responsive and walk you through the process of putting your property on the market for rent. Super professional and so far I have been very pleased with the Mars Hill Team.",
+  },
+  {
+    id: -3,
+    initials: "PM",
+    name: "Patrick Merkel",
+    role: "Tenant",
+    quote:
+      "We rented a property through Mars Hill in the Falls Church area and they were a great management company to work with. From time of lease signing to moving out, they made everything clear to me, great communications (both phone and email), and fast response to maintenance issues with vendors quickly responding. If you're looking to rent or buy in Virginia, I'd highly recommend these folks.",
+  },
+  {
+    id: -4,
+    initials: "BR",
+    name: "Brian Roberts",
+    role: "Tenant",
+    quote:
+      "Mars Hill Realty has proven to me that there are companies out there that provide good, quality service as a property management company. Everyone that I've spoken to has been professional, courteous, and responsive. They even walked through every section of the lease with me prior to me signing it. If you're looking to rent or buy in Virginia, I'd highly recommend these folks.",
+  },
+  {
+    id: -5,
+    initials: "RH",
+    name: "Ron Howard",
+    role: "Real Estate Broker",
+    quote:
+      "I am a Real Estate Broker in another state and I own three properties in Central Texas. I was referred to Mars Hill Realty by a friend. I cannot say enough good things about Mars Hill and the whole organized efficient team. They are on the ball, communicate well, have great reporting tools and are very nice people all the way around.",
+  },
+  {
+    id: -6,
+    initials: "LM",
+    name: "Lori Maranise",
+    role: "Real Estate Agent",
+    quote:
+      "I just had two clients rent a property through Mars Hill Texas and I was very impressed with the professionalism and responsiveness of their whole team. We worked particularly with Lori who was very friendly and helpful. The application process was very easy for my clients, and they stayed in touch throughout the whole process.",
+  },
+  {
+    id: -7,
+    initials: "SM",
+    name: "Stefan McFarland",
+    role: "Happy Seller, serving in the US Army",
+    quote:
+      "Excellent performance by Mars Hill Realty throughout the selling process that continually exceeded our expectations. Their efforts in generating buzz through their contacts and inside knowledge resulted in us receiving our full asking price after only six days on the market. If you are considering selling it yourself like we were, don't. We made more money selling with them, even after their commission, than we would have on our own.",
+  },
+  {
+    id: -8,
+    initials: "RD",
+    name: "Raquel Dishinger",
+    role: "Pastor's Wife, Happy Investor",
+    quote:
+      "Mars Hill Realty will do a phenomenal job in managing your rental property! They found us GREAT tenants within a week (their background check and process is excellent). Their web portal system is so helpful! Their customer service is impeccable and the staff answers their phones. They are the best!",
+  },
+  {
+    id: -9,
+    initials: "BH",
+    name: "Brian and Rosie Hunt",
+    role: "Teachers in Kuwait",
+    quote:
+      "We've had excellent service from Mars Hill Realty. Upon my wife and I receiving jobs overseas, we needed someone we could trust to take care of everything to rent our house. Edward Lui and his staff have done an impeccable job. I would definitely recommend Mars Hill Realty because they are professionals and stand by their word.",
   },
 ];
 
