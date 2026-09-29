@@ -94,16 +94,16 @@ export default function HomeClient({
         img{ display:block; max-width:100%; }
         .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
         .accent-stripe{ height:4px; background:linear-gradient(90deg, var(--accent-green), var(--accent-orange)); }
-        .topbar{ background:var(--blue-deep); color:#cfe0f2; font-size:12px; }
-        .topbar-inner{ max-width:1180px; margin:0 auto; padding:8px 32px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
-        .topbar-left{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
-        .topbar-left i{ margin-right:4px; vertical-align:-1px; }
+        .topbar{ background:var(--blue-deep); color:#cfe0f2; font-size:13.5px; }
+        .topbar-inner{ max-width:1180px; margin:0 auto; padding:10px 32px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+        .topbar-left{ display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+        .topbar-left i{ margin-right:5px; vertical-align:-1px; }
         .topbar-left a{ color:#cfe0f2; }
         .topbar-left a:hover{ color:#fff; }
-        .topbar-social{ display:flex; gap:12px; font-size:13px; }
+        .topbar-social{ display:flex; gap:14px; font-size:15px; }
         .topbar-social a{ color:#cfe0f2; }
         .topbar-social a:hover{ color:#fff; }
-        @media (max-width:640px){ .topbar-left{ font-size:11px; gap:12px; } }
+        @media (max-width:640px){ .topbar-left{ font-size:12px; gap:12px; } }
         header{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--border); }
         .header-inner{ display:flex; align-items:center; justify-content:space-between; padding:10px 32px; }
         .brand{ display:flex; align-items:center; gap:10px; font-size:18px; font-weight:600; color:var(--blue); letter-spacing:-0.2px; }
@@ -223,8 +223,9 @@ export default function HomeClient({
       <div className="topbar">
         <div className="topbar-inner">
           <div className="topbar-left">
-            <span><i className="ti ti-phone-call" />After-hours emergency maintenance: 703.888.0476</span>
-            <span><i className="ti ti-phone" />703.776.9223</span>
+            <span><i className="ti ti-phone-call" />After-hours emergency maintenance: <a href="tel:5126886476">512-688-6476</a></span>
+            <span><i className="ti ti-phone" /><a href="tel:7037769223">703-776-9223</a> (VA)</span>
+            <span><i className="ti ti-phone" /><a href="tel:5129420024">512-942-0024</a> (TX)</span>
           </div>
           <div className="topbar-social">
             <a href="#" aria-label="Facebook"><i className="ti ti-brand-facebook" /></a>
@@ -307,7 +308,7 @@ export default function HomeClient({
           <a className="btn btn-solid" href="#" style={{ marginTop: 8 }}>Meet the team</a>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Welcome-to-Mars-Hill-570x570.jpg" alt="Welcome to Mars Hill Realty Group" />
+        <img src="https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Welcome-to-Mars-Hill-1.jpg" alt="Welcome to Mars Hill Realty Group" />
       </section>
 
       <div className="stats">
@@ -436,7 +437,7 @@ export default function HomeClient({
             <div className="send-row">
               <button type="submit" className="btn btn-red" style={{ padding: "12px 30px", fontSize: 14 }}>Send</button>
               <span className="send-divider">Or</span>
-              <span className="send-call">Call: <a href="tel:7037769223">703.776.9223</a></span>
+              <span className="send-call">Call: <a href="tel:7037769223">703-776-9223</a> (VA) · <a href="tel:5129420024">512-942-0024</a> (TX)</span>
             </div>
           </form>
         </div>
@@ -484,7 +485,7 @@ export default function HomeClient({
           </div>
         </div>
         <div className="footer-bottom">
-          <span>PO Box 5059, Arlington, VA 22201 · <i className="ti ti-phone" /> 703.776.9223</span>
+          <span>PO Box 5059, Arlington, VA 22201 · <i className="ti ti-phone" /> <a href="tel:7037769223" style={{ color: "inherit" }}>703-776-9223</a> (VA) / <a href="tel:5129420024" style={{ color: "inherit" }}>512-942-0024</a> (TX)</span>
           <span>&copy; 2026 Mars Hill Realty Group</span>
         </div>
       </footer>
