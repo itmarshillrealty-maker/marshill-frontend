@@ -40,18 +40,23 @@ type Props = {
   heroSlides: HeroSlide[];
   services: ServiceCard[];
   testimonials: Testimonial[];
-  properties: PropertyListing[];
-  filters: ListingFilter[];
+  featuredProperties: PropertyListing[];
+  featuredFilters: ListingFilter[];
+  vacationRentals: PropertyListing[];
+  vacationFilters: ListingFilter[];
 };
 
 export default function HomeClient({
   heroSlides,
   services,
   testimonials,
-  properties,
-  filters,
+  featuredProperties,
+  featuredFilters,
+  vacationRentals,
+  vacationFilters,
 }: Props) {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFeaturedFilter, setActiveFeaturedFilter] = useState("all");
+  const [activeVacationFilter, setActiveVacationFilter] = useState("all");
   const [current, setCurrent] = useState(0);
   const [heroIndex, setHeroIndex] = useState(0);
 
@@ -154,6 +159,7 @@ export default function HomeClient({
         .section-label{ font-size:12px; font-weight:600; letter-spacing:1.5px; color:var(--blue-mid); text-transform:uppercase; text-align:center; margin-bottom:8px; }
         .section-title{ font-size:24px; font-weight:600; text-align:center; color:var(--ink); margin-bottom:28px; }
         .properties{ padding:80px 32px; max-width:1180px; margin:0 auto; }
+        .properties + .properties{ padding-top:0; }
         .filter-tabs{ display:flex; justify-content:center; gap:24px; margin-bottom:36px; flex-wrap:wrap; }
         .filter-tab{ font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--ink-soft); cursor:pointer; padding-bottom:6px; border-bottom:2px solid transparent; background:none; border-top:none; border-left:none; border-right:none; }
         .filter-tab.active{ color:var(--accent-orange); border-bottom-color:var(--accent-orange); }
@@ -332,40 +338,6 @@ export default function HomeClient({
         </div>
       </div>
 
-      {properties.length > 0 && (
-        <section className="properties">
-          <div className="section-label">Recent Properties</div>
-          <div className="section-title">Homes we currently manage</div>
-          <div className="filter-tabs">
-            {filters.map((f) => (
-              <button
-                key={f.key}
-                className={`filter-tab${activeFilter === f.key ? " active" : ""}`}
-                onClick={() => setActiveFilter(f.key)}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-          <div className="property-grid">
-            {properties
-              .filter((p) => activeFilter === "all" || p.statusSlug === activeFilter)
-              .map((p) => (
-                <div className="property-card" key={p.id}>
-                  <div className="thumb">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={p.image} alt={p.title} />
-                    <span className="property-status">{p.statusLabel}</span>
-                  </div>
-                  <div className="city">{p.title}</div>
-                  <div className="type">{p.detail}</div>
-                  <div className="price">{p.price}</div>
-                </div>
-              ))}
-          </div>
-        </section>
-      )}
-
       <div className="testimonial-wrap">
         <div className="section-label">Testimonials</div>
         <div className="section-title">What our clients say</div>
@@ -398,6 +370,74 @@ export default function HomeClient({
           </div>
         </div>
       </div>
+
+      {featuredProperties.length > 0 && (
+        <section className="properties">
+          <div className="section-label">Featured Properties</div>
+          <div className="section-title">Homes we currently manage</div>
+          <div className="filter-tabs">
+            {featuredFilters.map((f) => (
+              <button
+                key={f.key}
+                className={`filter-tab${activeFeaturedFilter === f.key ? " active" : ""}`}
+                onClick={() => setActiveFeaturedFilter(f.key)}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+          <div className="property-grid">
+            {featuredProperties
+              .filter((p) => activeFeaturedFilter === "all" || p.statusSlug === activeFeaturedFilter)
+              .map((p) => (
+                <div className="property-card" key={p.id}>
+                  <div className="thumb">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.image} alt={p.title} />
+                    <span className="property-status">{p.statusLabel}</span>
+                  </div>
+                  <div className="city">{p.title}</div>
+                  <div className="type">{p.detail}</div>
+                  {p.price && <div className="price">{p.price}</div>}
+                </div>
+              ))}
+          </div>
+        </section>
+      )}
+
+      {vacationRentals.length > 0 && (
+        <section className="properties">
+          <div className="section-label">Vacation Rentals</div>
+          <div className="section-title">Where we host</div>
+          <div className="filter-tabs">
+            {vacationFilters.map((f) => (
+              <button
+                key={f.key}
+                className={`filter-tab${activeVacationFilter === f.key ? " active" : ""}`}
+                onClick={() => setActiveVacationFilter(f.key)}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+          <div className="property-grid">
+            {vacationRentals
+              .filter((p) => activeVacationFilter === "all" || p.statusSlug === activeVacationFilter)
+              .map((p) => (
+                <div className="property-card" key={p.id}>
+                  <div className="thumb">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.image} alt={p.title} />
+                    <span className="property-status">{p.statusLabel}</span>
+                  </div>
+                  <div className="city">{p.title}</div>
+                  <div className="type">{p.detail}</div>
+                  {p.price && <div className="price">{p.price}</div>}
+                </div>
+              ))}
+          </div>
+        </section>
+      )}
 
       <div className="cta-band">
         <h2>Ready to get started?</h2>

@@ -43,8 +43,10 @@ export type HomeContent = {
   heroSlides: HeroSlide[];
   services: ServiceCard[];
   testimonials: Testimonial[];
-  properties: PropertyListing[];
-  filters: ListingFilter[];
+  featuredProperties: PropertyListing[];
+  featuredFilters: ListingFilter[];
+  vacationRentals: PropertyListing[];
+  vacationFilters: ListingFilter[];
 };
 
 // WORDPRESS_API_URL is the name already used by .github/workflows/deploy.yml
@@ -58,11 +60,8 @@ const WP_API_BASE =
 // ---------------------------------------------------------------------
 // Default content — the real copy from the old site, used until (and
 // unless) a matching entry exists under Hero Slides / Service Cards /
-// Testimonials in wp-admin, which take priority when present. Property
-// listings are the one exception left empty below: the old site's listing
-// photos weren't available, and showing stock photos next to real
-// addresses would misrepresent actual properties, so that section stays
-// off until real listings (with real photos) are added in wp-admin.
+// Testimonials / Property Listings in wp-admin, which take priority when
+// present.
 // ---------------------------------------------------------------------
 
 const FALLBACK_HERO: HeroSlide[] = [
@@ -218,7 +217,228 @@ const FALLBACK_TESTIMONIALS: Testimonial[] = [
   },
 ];
 
-const FALLBACK_PROPERTIES: PropertyListing[] = [];
+// Real listings, copied once from the old/production site's "Portfolio"
+// plugin (marshillpropertymanagement.com/wp-json/wp/v2/fw-portfolio) — that
+// plugin isn't installed here, so this is the one-time static snapshot of
+// its 20 published items, split into the same two groups + tabs the old
+// homepage used. statusSlug/statusLabel double as the matching taxonomy
+// term slug/name in wp-admin (Property Listings → listing_status), so once
+// a listing exists there with that slug it takes over from the row below
+// with no code change — see the slug sets just below getHomeContent.
+const FALLBACK_FEATURED_PROPERTIES: PropertyListing[] = [
+  {
+    id: -1,
+    title: "2451 Midtown Avenue Apt 724 in Alexandria, VA",
+    price: "$375,000",
+    detail: "For Sale",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/06/305-Moulins-Ln-1-scaled.jpg",
+    statusSlug: "for-sale",
+    statusLabel: "For Sale",
+  },
+  {
+    id: -2,
+    title: "Sold in Leesburg, VA",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/11/1137-front.jpeg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -3,
+    title: "Sold in Hutto, TX",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/09/711-Liard-River-Rd-1.jpg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -4,
+    title: "81 Fendall Avenue in Alexandria, Virginia",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/09/fendall-front.jpeg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -5,
+    title: "Sold in Georgetown, TX",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/06/305-Moulins-Ln-1-scaled.jpg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -6,
+    title: "Sold in Georgetown, TX",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/03/GetMedia-1.jpeg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -7,
+    title: "Sold in Sterling, VA",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2022/09/front.jpeg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -8,
+    title: "Sold in Alexandria, VA",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2022/08/front.jpeg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -9,
+    title: "Sold in Georgetown, TX",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2022/06/308-Debora-Dr-1-scaled.jpg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -10,
+    title: "Sold in Clarksburg, MD",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2022/02/Broadway-front.jpeg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -11,
+    title: "Condo in National Harbor, MD",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2021/04/fleet.jpeg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -12,
+    title: "Sold in Jarrell, TX",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2021/05/front1210.jpg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -13,
+    title: "Sold in Round Rock, TX",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2021/04/2302StirrupDr-large-001-ExteriorFront001-1500x994-72dpi.jpeg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -14,
+    title: "Sold in Pflugerville, TX",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2021/04/stokes.jpeg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+  {
+    id: -15,
+    title: "Sold in Fairfax, VA",
+    price: "",
+    detail: "Sold Investment Property",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2021/04/Wood-violet.jpeg",
+    statusSlug: "sold",
+    statusLabel: "Sold Investment Properties",
+  },
+];
+
+const FALLBACK_VACATION_RENTALS: PropertyListing[] = [
+  {
+    id: -101,
+    title: "The Lone Star Bungalow",
+    price: "From $350/night",
+    detail: "Georgetown, TX · 3 BR / 2.5 BA · Sleeps 8",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/10/IMG_3698-scaled.jpg",
+    statusSlug: "central-texas-vacation-rentals",
+    statusLabel: "Central Texas Vacation Rentals",
+  },
+  {
+    id: -102,
+    title: "JCS Farms",
+    price: "From $450/night",
+    detail: "5 BR / 3 BA · Sleeps 16",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2022/05/jcsfarms7.jpg",
+    statusSlug: "northern-virginia-vacation-rentals",
+    statusLabel: "Northern Virginia Vacation Rentals",
+  },
+  {
+    id: -103,
+    title: "The Berkshire",
+    price: "From $920/night",
+    detail: "7 BR / 3.5 BA · Sleeps 21",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2021/02/Berkshire-Front-c.jpg",
+    statusSlug: "the-poconos-pennsylvania",
+    statusLabel: "The Poconos, PA Vacation Rentals",
+  },
+  {
+    id: -104,
+    title: "The Great Pyrenees",
+    price: "From $850/night",
+    detail: "6 BR / 4.5 BA · Sleeps 22",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2019/02/front-2-1.jpg",
+    statusSlug: "the-poconos-pennsylvania",
+    statusLabel: "The Poconos, PA Vacation Rentals",
+  },
+  {
+    id: -105,
+    title: "The Khaki Campbell",
+    price: "From $740/night",
+    detail: "5 BR / 3.5 BA · Sleeps 19",
+    image:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2019/02/Pineknoll-Front-2.jpg",
+    statusSlug: "the-poconos-pennsylvania",
+    statusLabel: "The Poconos, PA Vacation Rentals",
+  },
+];
+
+// Any listing_status term whose slug lands in here is a vacation rental
+// region rather than a for-sale/sold status — this is how a real wp-admin
+// entry gets routed to the right section/tab automatically.
+const VACATION_STATUS_SLUGS = new Set([
+  "central-texas-vacation-rentals",
+  "northern-virginia-vacation-rentals",
+  "the-poconos-pennsylvania",
+]);
 
 // ---------------------------------------------------------------------
 
@@ -317,34 +537,52 @@ export async function getHomeContent(): Promise<HomeContent> {
         })
       : FALLBACK_TESTIMONIALS;
 
-  const properties: PropertyListing[] =
-    propertyPosts && propertyPosts.length
-      ? propertyPosts.map((p) => {
-          const terms = p._embedded?.["wp:term"]?.flat() || [];
-          const statusTerm = terms.find((t) => t.taxonomy === "listing_status");
-          return {
-            id: p.id,
-            title: stripHtml(p.title.rendered),
-            price: p.meta?.price || "",
-            detail: p.meta?.detail || "",
-            image: featuredImage(p),
-            statusSlug: statusTerm?.slug || "other",
-            statusLabel: statusTerm?.name || "Other",
-          };
-        })
-      : FALLBACK_PROPERTIES;
+  let featuredProperties: PropertyListing[];
+  let vacationRentals: PropertyListing[];
 
-  // Filter tabs are built from whichever statuses actually exist in
-  // WordPress, in first-seen order — add a new status term in wp-admin
-  // and its tab appears here with no code change.
-  const seen = new Set<string>();
-  const filters: ListingFilter[] = [{ key: "all", label: "All" }];
-  for (const p of properties) {
-    if (!seen.has(p.statusSlug)) {
-      seen.add(p.statusSlug);
-      filters.push({ key: p.statusSlug, label: p.statusLabel });
-    }
+  if (propertyPosts && propertyPosts.length) {
+    const all: PropertyListing[] = propertyPosts.map((p) => {
+      const terms = p._embedded?.["wp:term"]?.flat() || [];
+      const statusTerm = terms.find((t) => t.taxonomy === "listing_status");
+      return {
+        id: p.id,
+        title: stripHtml(p.title.rendered),
+        price: p.meta?.price || "",
+        detail: p.meta?.detail || "",
+        image: featuredImage(p),
+        statusSlug: statusTerm?.slug || "other",
+        statusLabel: statusTerm?.name || "Other",
+      };
+    });
+    featuredProperties = all.filter((p) => !VACATION_STATUS_SLUGS.has(p.statusSlug));
+    vacationRentals = all.filter((p) => VACATION_STATUS_SLUGS.has(p.statusSlug));
+  } else {
+    featuredProperties = FALLBACK_FEATURED_PROPERTIES;
+    vacationRentals = FALLBACK_VACATION_RENTALS;
   }
 
-  return { heroSlides, services, testimonials, properties, filters };
+  // Filter tabs are built from whichever statuses actually exist in each
+  // group, in first-seen order — add a new status/region term in wp-admin
+  // and its tab appears here with no code change.
+  const buildFilters = (listings: PropertyListing[]): ListingFilter[] => {
+    const seen = new Set<string>();
+    const filters: ListingFilter[] = [{ key: "all", label: "All" }];
+    for (const p of listings) {
+      if (!seen.has(p.statusSlug)) {
+        seen.add(p.statusSlug);
+        filters.push({ key: p.statusSlug, label: p.statusLabel });
+      }
+    }
+    return filters;
+  };
+
+  return {
+    heroSlides,
+    services,
+    testimonials,
+    featuredProperties,
+    featuredFilters: buildFilters(featuredProperties),
+    vacationRentals,
+    vacationFilters: buildFilters(vacationRentals),
+  };
 }
