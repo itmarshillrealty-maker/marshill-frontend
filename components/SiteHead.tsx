@@ -171,6 +171,19 @@ export default function SiteHead() {
         .listing-description{ font-size:15px; color:var(--ink-soft); line-height:1.8; white-space:pre-line; }
         .listing-back{ display:inline-flex; align-items:center; gap:6px; margin-top:36px; font-size:13px; font-weight:600; color:var(--blue); }
         .listing-back:hover{ color:var(--blue-mid); }
+
+        /* Team page */
+        .page-hero{ position:relative; min-height:200px; display:flex; align-items:center; justify-content:center; text-align:center; background:var(--blue-deep); padding:48px 32px; }
+        .page-hero h1{ color:#fff; font-size:30px; font-weight:600; }
+        .team-wrap{ max-width:1180px; margin:0 auto; padding:72px 32px; }
+        .team-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:32px 24px; }
+        .team-card{ text-align:center; }
+        .team-photo{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:8px; background:var(--blue-pale); filter:grayscale(1); transition:filter .2s ease; }
+        .team-card:hover .team-photo{ filter:grayscale(0); }
+        .team-name{ font-size:14px; font-weight:600; color:var(--ink); margin-top:14px; }
+        .team-role{ font-size:12px; color:var(--ink-soft); margin-top:4px; line-height:1.5; }
+        @media (max-width:860px){ .team-grid{ grid-template-columns:repeat(2,1fr); } }
+        @media (max-width:480px){ .team-grid{ grid-template-columns:1fr 1fr; gap:24px 16px; } }
       `}</style>
     </>
   );

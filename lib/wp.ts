@@ -41,6 +41,14 @@ export type PropertyListing = {
 
 export type ListingFilter = { key: string; label: string };
 
+export type TeamMember = {
+  id: number;
+  slug: string;
+  name: string;
+  role: string;
+  image: string;
+};
+
 export type HomeContent = {
   heroSlides: HeroSlide[];
   services: ServiceCard[];
@@ -219,6 +227,42 @@ const FALLBACK_TESTIMONIALS: Testimonial[] = [
   },
 ];
 
+// Real team roster, copied once from production's "Team Members" directory
+// (marshillpropertymanagement.com/member/) — that content type isn't REST-
+// exposed even on production (no /wp-json/wp/v2/team endpoint), so this is
+// a one-time static snapshot of all 28 published members, pulled straight
+// off the live page. Drafts and private entries on production are
+// intentionally left out.
+const FALLBACK_TEAM: TeamMember[] = [
+  { id: -1, slug: "edward", name: "Edward W. Lui", role: "Broker/President", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2017/01/Edward-Lui-Headshot-by-Vadym-Nov-22-1-1.jpeg" },
+  { id: -2, slug: "valerie", name: "Valerie Tillery", role: "Property Manager Team Leader", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/11/MG_2822.jpg" },
+  { id: -3, slug: "margaret-strain", name: "Margaret Strain", role: "Business Development & Marketing Team Leader", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2024/06/Margaret-Strain.jpg" },
+  { id: -4, slug: "cyrene", name: "Cyrene Krizia Corpuz-Salting", role: "Support Team Leader & Partner Club Specialist", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2022/11/Photo-wordpress-411x435.jpeg" },
+  { id: -5, slug: "jen-meitzen", name: "Jen Meitzen", role: "Operations Manager; Accounting Team Leader", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/06/Jen-Meitzen.jpg" },
+  { id: -6, slug: "christine-chapman", name: "Christine Chapman", role: "Human Resource Manager", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/10/me-picture.jpg" },
+  { id: -7, slug: "bree-grasso", name: "Bree Grasso", role: "Property Manager", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2024/10/bree400.jpg" },
+  { id: -8, slug: "brian-tanaka", name: "Brian Tanaka", role: "Managing Broker", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/11/Brian-Tanaka-bw.jpg" },
+  { id: -9, slug: "wes-kalk", name: "Wes Kalk", role: "Texas Property Manager", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2025/03/wes-400.jpg" },
+  { id: -10, slug: "tosalyn-sellers", name: "Tosalyn Sellers", role: "Texas Property Manager", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2024/05/image1-480x480-1-480x435.jpeg" },
+  { id: -11, slug: "paola-espinoza", name: "Paola Espinoza", role: "Maintenance Coordinator", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2026/09/yo-555x435.jpg" },
+  { id: -12, slug: "ashley-daigle", name: "Ashley Daigle", role: "Virginia Property Manager", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2021/11/Ashley-1024x1024-1.jpeg" },
+  { id: -13, slug: "joshua-lui", name: "Joshua Lui", role: "Property Manager", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2026/01/Joshua_V2.jpg" },
+  { id: -14, slug: "chloe-lui", name: "Chloe Lui", role: "Client Success Team", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2024/05/chloe2-555x435.jpg" },
+  { id: -15, slug: "alicia", name: "Alicia Coursey", role: "Accounts Receivable", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/06/Image-4-Alicia-Courcey-.jpg" },
+  { id: -16, slug: "melody", name: "Melody Shiu", role: "Accounts Payable", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/06/Mel-400x400-1.jpeg" },
+  { id: -17, slug: "suzanne-lester", name: "Suzanne Lester", role: "Accounting Assistant", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2025/03/suzanne-400.jpg" },
+  { id: -18, slug: "des-manganaan", name: "Des Manganaan", role: "Applications Specialist", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2024/10/des400.jpg" },
+  { id: -19, slug: "aurea", name: "Aurea Vargas", role: "Utilities & HOA Specialist", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/12/Rea.jpg" },
+  { id: -20, slug: "levi-sangalang", name: "Levi Sangalang", role: "Contracts Specialist", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/09/Levi-BW2.jpeg" },
+  { id: -21, slug: "natalie-gomez", name: "Natalie Gomez", role: "Work Order Specialist", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2024/10/natalie-400.jpg" },
+  { id: -22, slug: "travis-fletcher", name: "Travis Fletcher", role: "Service Team: Maintenance Technician - TX", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/10/Travis-BW-copy.jpeg" },
+  { id: -23, slug: "rodney-biehle", name: "Rodney Biehle", role: "Service Team: Maintenance Technician - TX", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2024/10/Rodney1-resixed.jpg" },
+  { id: -24, slug: "mandy-forbis", name: "Mandy Forbis", role: "Business Development Associate - New Owners", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2023/12/Mandy-BW.jpg" },
+  { id: -25, slug: "maika-mae-de-vera", name: "Maika Mae De Vera", role: "Marketing Specialist", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2024/10/maika400.jpg" },
+  { id: -26, slug: "armando", name: "Armando Colmenares", role: "Business Development Intern", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2026/01/armando_400.jpg" },
+  { id: -27, slug: "perry-santillan", name: "Perry Santillan", role: "Lead Specialist", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2024/01/1787444034683-555x435.jpg" },
+  { id: -28, slug: "raffy-tatel", name: "Raffy Tatel", role: "IT Manager", image: "https://www.marshillpropertymanagement.com/wp-content/uploads/2026/03/raffy-400-2.jpg" },
+];
 // Real listings, copied once from the old/production site's "Portfolio"
 // plugin (marshillpropertymanagement.com/wp-json/wp/v2/fw-portfolio) — that
 // plugin isn't installed here, so this is the one-time static snapshot of
@@ -668,4 +712,21 @@ export async function getListingBySlug(
 ): Promise<PropertyListing | undefined> {
   const listings = await getAllListings();
   return listings.find((p) => p.slug === slug);
+}
+
+// Used by the /team page. Looks for a "Team Members" entry type in
+// wp-admin first (none exists yet — add one with slug/rest_base
+// "team-members" and a "role" meta field and it takes over automatically,
+// same pattern as the other content types above); falls back to the real
+// 28-person roster copied once from production otherwise.
+export async function getTeamMembers(): Promise<TeamMember[]> {
+  const posts = await wpFetch("/team-members?orderby=menu_order&order=asc&per_page=100&_embed=1");
+  if (!posts || !posts.length) return FALLBACK_TEAM;
+  return posts.map((p) => ({
+    id: p.id,
+    slug: p.slug,
+    name: stripHtml(p.title.rendered),
+    role: p.meta?.role || "",
+    image: featuredImage(p),
+  }));
 }

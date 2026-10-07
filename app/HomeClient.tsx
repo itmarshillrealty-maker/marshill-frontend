@@ -103,7 +103,7 @@ export default function HomeClient({
           <h2>Welcome to Mars Hill Realty Group</h2>
           <p>Mars Hill Realty Group is a full-service real estate brokerage, licensed in Virginia and Texas. We help our clients buy, sell and invest in homes with a focus on property management services. We&apos;ve built a team that enjoys working together to provide our clientele with proven business practices, concierge services and responsive communication.</p>
           <p>At Mars Hill, our property managers expertly manage your tenants and protect your investment, combining years of successful experience, in-depth market knowledge and negotiation expertise to help our owners reach their goals.</p>
-          <a className="btn btn-solid" href="#" style={{ marginTop: 8 }}>Meet the team</a>
+          <Link className="btn btn-solid" href="/team" style={{ marginTop: 8 }}>Meet the team</Link>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Welcome-to-Mars-Hill-1.jpg" alt="Welcome to Mars Hill Realty Group" />
