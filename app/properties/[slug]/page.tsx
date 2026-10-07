@@ -25,7 +25,7 @@ export async function generateMetadata({
   const listing = await getListingBySlug(slug);
   if (!listing) return {};
   return {
-    title: `${listing.title} | Mars Hill Realty Group`,
+    title: listing.title,
     description: listing.description.slice(0, 160),
   };
 }

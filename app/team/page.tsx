@@ -5,7 +5,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Our Team | Mars Hill Realty Group",
+  title: "Team Members",
   description:
     "Meet the Mars Hill Realty Group team — property managers, brokers, and support staff across Virginia and Texas.",
 };
@@ -18,8 +18,16 @@ export default async function TeamPage() {
       <SiteHead />
       <SiteHeader />
 
-      <div className="page-hero">
-        <h1>Team Members</h1>
+      <div
+        className="listing-hero"
+        style={{
+          backgroundImage:
+            "url('https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Welcome-to-Mars-Hill-1.jpg')",
+        }}
+      >
+        <div className="listing-hero-inner">
+          <h1>Team Members</h1>
+        </div>
       </div>
 
       <div className="team-wrap">
