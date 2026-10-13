@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getTeamMembers } from "@/lib/wp";
 import SiteHead from "@/components/SiteHead";
 import SiteHeader from "@/components/SiteHeader";
@@ -33,12 +34,12 @@ export default async function TeamPage() {
       <div className="team-wrap">
         <div className="team-grid">
           {team.map((member) => (
-            <div className="team-card" key={member.id}>
+            <Link className="team-card" href={`/team/${member.slug}`} key={member.id}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img className="team-photo" src={member.image} alt={member.name} />
               <div className="team-name">{member.name}</div>
               {member.role && <div className="team-role">{member.role}</div>}
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -173,17 +173,42 @@ export default function SiteHead() {
         .listing-back:hover{ color:var(--blue-mid); }
 
         /* Team page */
-        .page-hero{ position:relative; min-height:200px; display:flex; align-items:center; justify-content:center; text-align:center; background:var(--blue-deep); padding:48px 32px; }
-        .page-hero h1{ color:#fff; font-size:30px; font-weight:600; }
         .team-wrap{ max-width:1180px; margin:0 auto; padding:72px 32px; }
         .team-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:32px 24px; }
-        .team-card{ text-align:center; }
+        .team-card{ text-align:center; cursor:pointer; display:block; }
         .team-photo{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:8px; background:var(--blue-pale); filter:grayscale(1); transition:filter .2s ease; }
         .team-card:hover .team-photo{ filter:grayscale(0); }
         .team-name{ font-size:14px; font-weight:600; color:var(--ink); margin-top:14px; }
         .team-role{ font-size:12px; color:var(--ink-soft); margin-top:4px; line-height:1.5; }
         @media (max-width:860px){ .team-grid{ grid-template-columns:repeat(2,1fr); } }
         @media (max-width:480px){ .team-grid{ grid-template-columns:1fr 1fr; gap:24px 16px; } }
+
+        /* Team member detail page */
+        .team-detail-wrap{ max-width:1180px; margin:0 auto; padding:56px 32px 72px; }
+        .team-detail-grid{ display:grid; grid-template-columns:280px 1fr; gap:48px; align-items:start; }
+        .team-detail-side{ position:sticky; top:88px; }
+        .team-detail-photo{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:8px; background:var(--blue-pale); margin-bottom:16px; }
+        .team-detail-role{ font-size:13px; font-weight:600; color:var(--accent-green); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px; }
+        .team-detail-phone{ display:flex; align-items:center; gap:6px; font-size:14px; font-weight:600; color:var(--blue); margin-bottom:16px; }
+        .team-detail-phone:hover{ color:var(--blue-mid); }
+        .team-detail-social{ display:flex; gap:10px; margin-bottom:28px; }
+        .team-detail-social a{ width:34px; height:34px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--blue); font-size:15px; transition:background .15s, color .15s; }
+        .team-detail-social a:hover{ background:var(--blue); color:#fff; }
+        .team-skills{ display:flex; flex-direction:column; gap:14px; }
+        .skill-row .skill-label{ display:flex; justify-content:space-between; font-size:12px; font-weight:600; color:var(--ink-soft); margin-bottom:5px; }
+        .skill-track{ height:6px; border-radius:3px; background:var(--blue-pale-2); overflow:hidden; }
+        .skill-fill{ height:100%; background:linear-gradient(90deg, var(--blue-mid), var(--blue)); border-radius:3px; }
+        .team-detail-main{ min-width:0; }
+        .team-detail-bio p{ font-size:15px; color:var(--ink-soft); line-height:1.8; margin-bottom:18px; }
+        .team-detail-bio-empty{ font-size:15px; color:var(--ink-soft); font-style:italic; margin-bottom:18px; }
+        @media (max-width:860px){ .team-detail-grid{ grid-template-columns:1fr; } .team-detail-side{ position:static; max-width:320px; } }
+
+        .team-contact-card{ margin-top:48px; padding:40px; background:var(--blue-pale); border-radius:8px; }
+        .team-contact-card h2{ font-size:20px; font-weight:600; color:var(--ink); margin:4px 0 20px; }
+        .team-contact-card form input[name="subject"]{ width:100%; margin-bottom:12px; }
+        .team-contact-success{ font-size:15px; font-weight:600; color:var(--accent-green); }
+        .team-contact-error{ font-size:13px; color:var(--red); margin-bottom:12px; }
+        @media (max-width:640px){ .team-contact-card{ padding:28px 20px; } }
       `}</style>
     </>
   );
