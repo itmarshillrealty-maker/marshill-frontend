@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 // Real trust/certification/military-service badges, pulled from the WordPress
 // media library (search "footer"). Each number below is the "Footer Badge N"
 // title WordPress assigned on original upload; picked the cleanest re-upload
@@ -50,20 +52,32 @@ export default function SiteFooter() {
           </div>
           <div>
             <h4>Company</h4>
-            <a href="#">About</a>
-            <a href="/blog">Blog</a>
-            <a href="#">Contact</a>
+            <Link href="/company">About</Link>
+            <Link href="/team">Team Members</Link>
+            <Link href="/#contact">Contact</Link>
           </div>
           <div>
             <h4>Owners</h4>
             <a href="#">Property management</a>
-            <a href="#">Owner login</a>
+            <a
+              href="https://app.propertyware.com/pw/index.html#/login/owner/marshillpropertymanagement"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Owner login
+            </a>
             <a href="#">Owner FAQ</a>
           </div>
           <div>
             <h4>Residents</h4>
             <a href="#">Search rentals</a>
-            <a href="#">Resident login</a>
+            <a
+              href="https://app.propertyware.com/pw/index.html#/login/tenant/marshillpropertymanagement"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resident login
+            </a>
             <a href="#">Resident FAQ</a>
           </div>
         </div>

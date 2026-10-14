@@ -30,7 +30,13 @@ export default function SiteHeader() {
           </Link>
           <nav>
             <Link href="/">Home</Link>
-            <a href="#">About Us <i className="ti ti-chevron-down" /></a>
+            <div className="nav-dropdown">
+              <a href="#">About Us <i className="ti ti-chevron-down" /></a>
+              <div className="nav-dropdown-menu">
+                <Link href="/company">Our Company</Link>
+                <Link href="/team">Team Members</Link>
+              </div>
+            </div>
             <a href="#">Services <i className="ti ti-chevron-down" /></a>
             <a href="#">Owners <i className="ti ti-chevron-down" /></a>
             <a href="#">Residents <i className="ti ti-chevron-down" /></a>
@@ -39,8 +45,22 @@ export default function SiteHeader() {
             <a href="#">Mars Meals</a>
           </nav>
           <div className="header-actions">
-            <a className="btn btn-outline" href="#">Owner login</a>
-            <a className="btn btn-solid" href="#">Resident login</a>
+            <a
+              className="btn btn-outline"
+              href="https://app.propertyware.com/pw/index.html#/login/owner/marshillpropertymanagement"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Owner login
+            </a>
+            <a
+              className="btn btn-solid"
+              href="https://app.propertyware.com/pw/index.html#/login/tenant/marshillpropertymanagement"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resident login
+            </a>
           </div>
         </div>
       </header>

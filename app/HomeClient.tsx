@@ -87,12 +87,18 @@ export default function HomeClient({
       <div className="wrap">
         <div className="services">
           {services.map((s) => (
-            <div className="service-card" key={s.id}>
+            <a
+              className="service-card"
+              key={s.id}
+              href={s.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i className={`ti ${s.icon}`} />
               <h3>{s.title}</h3>
               <p>{s.text}</p>
               <span className="read-more">READ MORE</span>
-            </div>
+            </a>
           ))}
         </div>
       </div>
@@ -237,7 +243,7 @@ export default function HomeClient({
         <a className="btn btn-red" href="#" style={{ padding: "13px 28px", fontSize: 14 }}>Contact us today</a>
       </div>
 
-      <div className="contact-section">
+      <div className="contact-section" id="contact">
         <div className="contact-form-col">
           <div className="section-label">Interested in finding out more?</div>
           <h2>Contact Us Today!</h2>
