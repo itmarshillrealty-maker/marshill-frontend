@@ -85,13 +85,15 @@ export default function SiteHead() {
         .hero-actions .btn{ padding:13px 26px; font-size:14px; }
         @media (max-width:640px){ .hero h1{ font-size:28px; } }
         .services{ max-width:calc(var(--container-max) - 100px); margin:-64px auto 0; position:relative; z-index:5; background:#fff; border-radius:8px; box-shadow:0 12px 32px rgba(18,58,102,0.14); display:grid; grid-template-columns:repeat(4,1fr); }
-        .service-card{ padding:32px 24px; text-align:center; border-right:1px solid var(--border); transition:background .15s; cursor:pointer; }
+        .service-card{ padding:32px 24px; text-align:center; border-right:1px solid var(--border); transition:background .15s; }
         .service-card:last-child{ border-right:none; }
         .service-card:hover{ background:var(--blue-pale); }
         .service-card i{ font-size:28px; color:var(--blue-mid); }
-        .service-card h3{ font-size:15px; font-weight:600; color:var(--ink); margin:14px 0 8px; }
-        .service-card p{ font-size:13px; color:var(--ink-soft); line-height:1.6; }
-        .read-more{ display:inline-block; margin-top:14px; font-size:11px; font-weight:600; letter-spacing:1px; color:var(--accent-green); border-bottom:1.5px solid var(--accent-green); padding-bottom:2px; }
+        .service-card h3{ font-size:15px; font-weight:600; margin:14px 0 8px; }
+        .service-card h3 a{ color:var(--ink); text-decoration:none; }
+        .service-card h3 a:hover{ color:var(--blue-mid); text-decoration:underline; }
+        .service-card p{ font-size:13px; color:var(--ink-soft); line-height:1.6; user-select:text; }
+        .read-more{ display:inline-block; margin-top:14px; font-size:11px; font-weight:600; letter-spacing:1px; color:var(--accent-green); border-bottom:1.5px solid var(--accent-green); padding-bottom:2px; text-decoration:none; }
         @media (max-width:860px){ .services{ grid-template-columns:repeat(2,1fr); margin-top:-40px; } .service-card{ border-bottom:1px solid var(--border); } }
         @media (max-width:480px){ .services{ grid-template-columns:1fr; } }
         .about{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; padding:88px 32px 64px; max-width:var(--container-max); margin:0 auto; }

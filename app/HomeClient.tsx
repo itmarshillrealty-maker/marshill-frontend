@@ -87,18 +87,23 @@ export default function HomeClient({
       <div className="wrap">
         <div className="services">
           {services.map((s) => (
-            <a
-              className="service-card"
-              key={s.id}
-              href={s.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <div className="service-card" key={s.id}>
               <i className={`ti ${s.icon}`} />
-              <h3>{s.title}</h3>
+              <h3>
+                <a href={s.link} target="_blank" rel="noopener noreferrer">
+                  {s.title}
+                </a>
+              </h3>
               <p>{s.text}</p>
-              <span className="read-more">READ MORE</span>
-            </a>
+              <a
+                className="read-more"
+                href={s.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                READ MORE
+              </a>
+            </div>
           ))}
         </div>
       </div>
