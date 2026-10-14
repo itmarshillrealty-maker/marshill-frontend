@@ -86,25 +86,38 @@ export default function HomeClient({
 
       <div className="wrap">
         <div className="services">
-          {services.map((s) => (
-            <div className="service-card" key={s.id}>
-              <i className={`ti ${s.icon}`} />
-              <h3>
-                <a href={s.link} target="_blank" rel="noopener noreferrer">
-                  {s.title}
-                </a>
-              </h3>
-              <p>{s.text}</p>
-              <a
-                className="read-more"
-                href={s.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                READ MORE
-              </a>
-            </div>
-          ))}
+          {services.map((s) => {
+            const isInternal = s.link.startsWith("/");
+            return (
+              <div className="service-card" key={s.id}>
+                <i className={`ti ${s.icon}`} />
+                <h3>
+                  {isInternal ? (
+                    <Link href={s.link}>{s.title}</Link>
+                  ) : (
+                    <a href={s.link} target="_blank" rel="noopener noreferrer">
+                      {s.title}
+                    </a>
+                  )}
+                </h3>
+                <p>{s.text}</p>
+                {isInternal ? (
+                  <Link className="read-more" href={s.link}>
+                    READ MORE
+                  </Link>
+                ) : (
+                  <a
+                    className="read-more"
+                    href={s.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    READ MORE
+                  </a>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
 

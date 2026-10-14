@@ -142,9 +142,8 @@ const FALLBACK_HERO: HeroSlide[] = [
   },
 ];
 
-// Links point straight at production's own "Services" pages (Brizy-built,
-// rich content that isn't worth re-authoring here) — same backend-stays-
-// on-the-old-site approach as everywhere else; add a "link" custom field
+// Links point at our own /service/[slug] pages now (see lib/servicePages.ts
+// for the real content, sourced from production); add a "link" custom field
 // on a real "Service Cards" entry in wp-admin to override any of these.
 const FALLBACK_SERVICES: ServiceCard[] = [
   {
@@ -152,28 +151,28 @@ const FALLBACK_SERVICES: ServiceCard[] = [
     icon: "ti-file-text",
     title: "New Renters Apply Now",
     text: "New renters in Virginia, Maryland, Washington D.C. and Texas can apply by following these 5 simple steps. 100% paperless process, decisions within 2 business days.",
-    link: "https://www.marshillpropertymanagement.com/service/new-renters-apply-now/",
+    link: "/service/new-renters-apply-now/",
   },
   {
     id: -2,
     icon: "ti-home-dollar",
     title: "Property Management",
     text: "We offer risk-reducing guarantees, turn-key solutions, and a network of quality service providers that result in a hassle-free real estate investment.",
-    link: "https://www.marshillpropertymanagement.com/service/property-management/",
+    link: "/service/property-management/",
   },
   {
     id: -3,
     icon: "ti-key",
     title: "Buying and Selling",
     text: "Skilled negotiators representing your interests at every step, from listing to closing.",
-    link: "https://www.marshillpropertymanagement.com/service/buying-and-selling/",
+    link: "/service/buying-and-selling/",
   },
   {
     id: -4,
     icon: "ti-building-bank",
     title: "Investment",
     text: "Strategy built on market data and years of local knowledge across the DC area and Central Texas.",
-    link: "https://www.marshillpropertymanagement.com/service/investment/",
+    link: "/service/investment/",
   },
 ];
 

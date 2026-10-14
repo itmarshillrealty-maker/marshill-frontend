@@ -56,14 +56,20 @@ export default function SiteHead() {
         nav a:hover{ color:var(--blue); }
         nav .ti-chevron-down{ font-size:10px; color:var(--ink-soft); }
         .nav-dropdown{ position:relative; display:inline-flex; align-items:center; }
+        /* The outer box starts flush against the trigger (top:100%, no gap) and
+           its own top padding is the hover "bridge" to the visible card below,
+           so moving the mouse straight down from "About Us" never crosses dead
+           space that would drop the :hover state before reaching the menu. */
         .nav-dropdown-menu{
-          position:absolute; top:100%; left:0; margin-top:10px; min-width:190px;
-          background:#fff; border:1px solid var(--border); border-radius:8px;
-          box-shadow:0 12px 28px rgba(18,58,102,0.14); padding:8px 0;
-          opacity:0; visibility:hidden; transform:translateY(6px);
+          position:absolute; top:100%; left:0; padding-top:14px; min-width:190px;
+          opacity:0; visibility:hidden; transform:translateY(6px); pointer-events:none;
           transition:opacity .15s ease, transform .15s ease; z-index:60;
         }
-        .nav-dropdown:hover .nav-dropdown-menu{ opacity:1; visibility:visible; transform:translateY(0); }
+        .nav-dropdown:hover .nav-dropdown-menu{ opacity:1; visibility:visible; transform:translateY(0); pointer-events:auto; }
+        .nav-dropdown-menu-inner{
+          background:#fff; border:1px solid var(--border); border-radius:8px;
+          box-shadow:0 12px 28px rgba(18,58,102,0.14); padding:8px 0;
+        }
         .nav-dropdown-menu a{ display:block; padding:9px 18px; font-size:13px; font-weight:500; color:var(--ink); white-space:nowrap; }
         .nav-dropdown-menu a:hover{ background:var(--blue-pale); color:var(--blue); }
         .header-actions{ display:flex; gap:10px; }
@@ -245,6 +251,27 @@ export default function SiteHead() {
         .vision-mission-card{ padding:32px; border:1px solid var(--border); border-radius:8px; }
         .vision-mission-card p{ font-size:15px; color:var(--ink-soft); line-height:1.7; }
         @media (max-width:860px){ .vision-mission-grid{ grid-template-columns:1fr; } }
+
+        /* Service detail pages (/service/[slug]) */
+        .service-detail-wrap{ padding:56px 32px 24px; }
+        .service-detail-intro{ max-width:860px; margin:0 auto 40px; text-align:center; }
+        .service-detail-intro p{ font-size:16px; color:var(--ink-soft); line-height:1.8; margin-bottom:14px; }
+        .service-detail-section{ margin-bottom:48px; }
+        .service-detail-section > p{ font-size:15px; color:var(--ink-soft); line-height:1.8; max-width:860px; margin:0 auto 14px; }
+        .service-bullets{ list-style:none; max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:14px; }
+        .service-bullets li{ display:flex; align-items:flex-start; gap:10px; font-size:15px; color:var(--ink-soft); line-height:1.6; }
+        .service-bullets li i{ color:var(--accent-green); font-size:18px; margin-top:2px; flex-shrink:0; }
+        .service-steps{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+        .service-step{ padding:24px; border:1px solid var(--border); border-radius:8px; background:#fff; }
+        .service-step h3{ font-size:15px; font-weight:600; color:var(--blue); margin-bottom:8px; }
+        .service-step p{ font-size:14px; color:var(--ink-soft); line-height:1.6; }
+        @media (max-width:860px){ .service-steps{ grid-template-columns:1fr; } }
+        .service-faq{ max-width:780px; margin:0 auto; display:flex; flex-direction:column; gap:18px; }
+        .service-faq-item{ padding:20px 24px; background:var(--blue-pale); border-radius:8px; }
+        .service-faq-q{ display:flex; align-items:center; gap:8px; font-size:15px; font-weight:600; color:var(--ink); margin-bottom:8px; }
+        .service-faq-q i{ color:var(--blue); font-size:17px; flex-shrink:0; }
+        .service-faq-a{ font-size:14px; color:var(--ink-soft); line-height:1.7; margin:0; }
+        .service-ctas{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
       `}</style>
     </>
   );
