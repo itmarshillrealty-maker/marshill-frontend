@@ -886,6 +886,24 @@ function featuredImage(post: WpPost): string {
   return post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "";
 }
 
+// Production titles look like "2451 Midtown Ave in Alexandria, VA – $375,000"
+// or "The Lone Star Bungalow. From $350/night" — there's no separate WP
+// field for price, so pull it back out of the title text instead.
+const PRICE_PATTERN = /(?:\b(?:from|starting at|starting from)\s+)?(\$[\d,]+(?:\s?\/\s?\w+)?)/i;
+
+function splitTitleAndPrice(rawTitle: string): { title: string; price: string } {
+  const match = rawTitle.match(PRICE_PATTERN);
+  if (!match) return { title: rawTitle, price: "" };
+  const price = match[1].replace(/\s+/g, "");
+  const title = rawTitle.replace(match[0], "").replace(/[\s.–-]+$/, "").trim();
+  return { title, price };
+}
+
+function shortDetail(content: string, max = 120): string {
+  if (content.length <= max) return content;
+  return content.slice(0, max).replace(/\s+\S*$/, "") + "…";
+}
+
 function initialsFrom(name: string): string {
   return name
     .trim()
@@ -914,7 +932,7 @@ export async function getHomeContent(): Promise<HomeContent> {
     wpFetch("/hero-slides?orderby=menu_order&order=asc&per_page=20&_embed=1"),
     wpFetch("/service-cards?orderby=menu_order&order=asc&per_page=20"),
     wpFetch("/testimonials?orderby=menu_order&order=asc&per_page=50"),
-    wpFetch("/property-listings?orderby=menu_order&order=asc&per_page=100&_embed=1"),
+    wpFetch("/fw-portfolio?orderby=menu_order&order=asc&per_page=100&_embed=1"),
   ]);
 
   const heroSlides: HeroSlide[] =
@@ -958,15 +976,23 @@ export async function getHomeContent(): Promise<HomeContent> {
 
   if (propertyPosts && propertyPosts.length) {
     const all: PropertyListing[] = propertyPosts.map((p) => {
+      // The real "fw-portfolio-category" taxonomy (status/region) only shows
+      // up here once the WP plugin marks it show_in_rest — see
+      // marshill-content-rest.php. Price/detail aren't separate WP fields;
+      // Brizy baked them straight into the title/body text, so they're
+      // parsed back out here instead of expecting WP meta that doesn't exist.
       const terms = p._embedded?.["wp:term"]?.flat() || [];
-      const statusTerm = terms.find((t) => t.taxonomy === "listing_status");
+      const statusTerm = terms.find((t) => t.taxonomy === "fw-portfolio-category");
+      const rawTitle = stripHtml(p.title.rendered);
+      const { title, price } = splitTitleAndPrice(rawTitle);
+      const description = stripHtml(p.content.rendered);
       return {
         id: p.id,
         slug: p.slug,
-        title: stripHtml(p.title.rendered),
-        price: p.meta?.price || "",
-        detail: p.meta?.detail || "",
-        description: stripHtml(p.content.rendered),
+        title,
+        price,
+        detail: shortDetail(description),
+        description,
         image: featuredImage(p),
         statusSlug: statusTerm?.slug || "other",
         statusLabel: statusTerm?.name || "Other",
