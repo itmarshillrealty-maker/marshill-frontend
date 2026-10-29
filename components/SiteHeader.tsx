@@ -33,11 +33,23 @@ export default function SiteHeader() {
             <div className="nav-dropdown">
               <a href="#">About Us <i className="ti ti-chevron-down" /></a>
               <div className="nav-dropdown-menu">
-                <Link href="/company">Our Company</Link>
-                <Link href="/team">Team Members</Link>
+                <div className="nav-dropdown-menu-inner">
+                  <Link href="/company">Our Company</Link>
+                  <Link href="/team">Team Members</Link>
+                </div>
               </div>
             </div>
-            <a href="#">Services <i className="ti ti-chevron-down" /></a>
+            <div className="nav-dropdown">
+              <a href="#">Services <i className="ti ti-chevron-down" /></a>
+              <div className="nav-dropdown-menu">
+                <div className="nav-dropdown-menu-inner">
+                  <Link href="/service/new-renters-apply-now">New Renters Apply Now</Link>
+                  <Link href="/service/property-management">Property Management</Link>
+                  <Link href="/service/buying-and-selling">Buying and Selling</Link>
+                  <Link href="/service/investment">Investment</Link>
+                </div>
+              </div>
+            </div>
             <a href="#">Owners <i className="ti ti-chevron-down" /></a>
             <a href="#">Residents <i className="ti ti-chevron-down" /></a>
             <a href="#">Partner Club <i className="ti ti-chevron-down" /></a>
