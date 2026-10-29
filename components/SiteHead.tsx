@@ -272,6 +272,9 @@ export default function SiteHead() {
         .service-faq-q i{ color:var(--blue); font-size:17px; flex-shrink:0; }
         .service-faq-a{ font-size:14px; color:var(--ink-soft); line-height:1.7; margin:0; }
         .service-ctas{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+        .service-video-caption{ font-size:15px; font-weight:600; color:var(--ink); text-align:center; margin-bottom:16px; }
+        .service-video-embed{ position:relative; width:100%; max-width:720px; aspect-ratio:16/9; margin:0 auto; border-radius:8px; overflow:hidden; box-shadow:0 12px 28px rgba(18,58,102,0.14); background:#000; }
+        .service-video-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
       `}</style>
     </>
   );

@@ -103,6 +103,23 @@ export default async function ServicePage({
               </div>
             );
           }
+          if (section.type === "video") {
+            return (
+              <div className="service-detail-section" key={i}>
+                {section.heading && <h2 className="section-title">{section.heading}</h2>}
+                {section.caption && <p className="service-video-caption">{section.caption}</p>}
+                <div className="service-video-embed">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${section.youtubeId}`}
+                    title={section.title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            );
+          }
           if (section.type === "faq") {
             return (
               <div className="service-detail-section" key={i}>
