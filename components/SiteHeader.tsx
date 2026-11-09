@@ -50,7 +50,16 @@ export default function SiteHeader() {
                 </div>
               </div>
             </div>
-            <a href="#">Owners <i className="ti ti-chevron-down" /></a>
+            <div className="nav-dropdown">
+              <a href="#">Owners <i className="ti ti-chevron-down" /></a>
+              <div className="nav-dropdown-menu">
+                <div className="nav-dropdown-menu-inner">
+                  <Link href="/service/our-guarantees">Our Guarantees</Link>
+                  <Link href="/service/owner-portal-login">Owner Portal Login</Link>
+                  <Link href="/service/forms-and-information">Forms and Information</Link>
+                </div>
+              </div>
+            </div>
             <a href="#">Residents <i className="ti ti-chevron-down" /></a>
             <a href="#">Partner Club <i className="ti ti-chevron-down" /></a>
             <a href="#">Rental Listings <i className="ti ti-chevron-down" /></a>

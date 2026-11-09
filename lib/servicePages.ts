@@ -338,6 +338,152 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
       },
     ],
   },
+
+  "our-guarantees": {
+    slug: "our-guarantees",
+    title: "Our Guarantees",
+    metaDescription:
+      "Mars Hill Realty Group backs its property management service with real guarantees, including a 60-day rented guarantee and an eviction-free guarantee for Investor Level owners.",
+    heroImage:
+      "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Owners-Dropdown-Our-Guarantees-Page-Image-Suggested-Crop-scaled.jpg",
+    intro: [
+      "We strongly believe that our processes reduce your risk and result in a hassle-free investment. That's why we put our word behind our work, and share the risk with you through the guarantees below.",
+    ],
+    sections: [
+      {
+        type: "bullets",
+        heading: "Our Guarantees",
+        items: [
+          "Tenant Replacement Guarantee – If a tenant we place has to end the lease early for a reason the lease doesn't allow, we find a replacement qualified tenant and waive our Leasing Fee to do it.",
+          "100% Satisfaction Guarantee – If you're not happy with our service, you can cancel your management contract with just 60 days' notice.",
+          "Rented in 60 Days Guarantee* – If your home is vacant, move-in ready, and priced within our original recommendation, we'll find a qualified tenant within 60 days, or we credit your first month's management fee.",
+          "Property Peace of Mind Guarantee* – We offer a $500 credit toward property damage we're unable to collect from the responsible tenant.",
+          "Eviction Free Guarantee* – If we place a tenant and have to obtain a judgment for non-payment of rent, we cover the eviction cost up to $1,000.",
+        ],
+      },
+      {
+        type: "paragraphs",
+        paragraphs: ["*Exclusive to Investor Level Partner Club members."],
+      },
+      {
+        type: "ctas",
+        heading: "24/7 Portal Access",
+        items: [
+          { label: "Owner login", href: OWNER_LOGIN, external: true },
+          { label: "Resident login", href: RESIDENT_LOGIN, external: true },
+          { label: "Get in touch", href: "/#contact" },
+        ],
+      },
+    ],
+  },
+
+  "owner-portal-login": {
+    slug: "owner-portal-login",
+    title: "Owner Portal Login",
+    metaDescription:
+      "Mars Hill Realty Group owners get 24/7 access to work orders, statements, ledgers, and property documents through the Owner Portal.",
+    heroImage:
+      "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Owners-Dropdown-Our-Guarantees-Page-Image-Suggested-Crop-scaled.jpg",
+    intro: [
+      "Part of our \"hassle-free\" experience means giving you the resources to access your account data 24 hours a day.",
+    ],
+    sections: [
+      {
+        type: "bullets",
+        heading: "What You Can Do From The Owner Portal",
+        items: [
+          "Check the work order history for your property.",
+          "Review work order invoices.",
+          "Access your monthly statements.",
+          "View a photo database from walk-throughs and work orders.",
+          "Review your ledger and pay any balance.",
+          "Access your current lease, property management contract, and other property documents.",
+        ],
+      },
+      {
+        type: "ctas",
+        heading: "24/7 Portal Access",
+        items: [
+          { label: "Owner Portal Login", href: OWNER_LOGIN, external: true },
+          { label: "Resident login", href: RESIDENT_LOGIN, external: true },
+          { label: "Get in touch", href: "/#contact" },
+        ],
+      },
+    ],
+  },
+
+  "forms-and-information": {
+    slug: "forms-and-information",
+    title: "Forms and Information",
+    metaDescription:
+      "Download the property management forms and documents Mars Hill Realty Group owners need, including state-specific agreements and disclosures for Virginia and Texas.",
+    heroImage:
+      "https://beta.marshillpropertymanagement.com/wp/wp-content/uploads/2020/05/Owners-Dropdown-Our-Guarantees-Page-Image-Suggested-Crop-scaled.jpg",
+    intro: [],
+    sections: [
+      {
+        type: "ctas",
+        heading: "Supporting Documents For Property Management (All States)",
+        items: [
+          {
+            label: "Owner Information Form",
+            href: "https://drive.google.com/file/d/11C1RK7aScSeCTqleEptjGkpTFL-6nbTA/view?usp=sharing",
+            external: true,
+          },
+          {
+            label: "W-9 Form (IRS)",
+            href: "https://www.irs.gov/pub/irs-pdf/fw9.pdf",
+            external: true,
+          },
+        ],
+      },
+      {
+        type: "ctas",
+        heading: "Virginia Property Management Documents",
+        items: [
+          {
+            label: "VA Disclosure Form",
+            href: "https://drive.google.com/file/d/1ZcTzHjL5Tsos_LwTTUSX9FzJHSDE4KQg/view?usp=drive_link",
+            external: true,
+          },
+          {
+            label: "VA Property Management Agreement",
+            href: "https://drive.google.com/file/d/1ycFnGnu6WFI5QU6Q3Z0I-vLn7OotDD-M/view?usp=drive_link",
+            external: true,
+          },
+          {
+            label: "VA Listing Agreement",
+            href: "https://drive.google.com/file/d/101BUdndMV-y4NoRAUOHzE8h_9bWxHpkA/view?usp=drive_link",
+            external: true,
+          },
+        ],
+      },
+      {
+        type: "ctas",
+        heading: "Texas Property Management Documents",
+        items: [
+          {
+            label: "Texas Leasing & Property Management Agreement",
+            href: "https://drive.google.com/file/d/1NeGyUkInMTKzOamfmXQSICIuRayLr8Pj/view?usp=sharing",
+            external: true,
+          },
+          {
+            label: "Information About Brokerage Services",
+            href: "https://drive.google.com/file/d/19fg4_oEM5Ao4Ws2-QT9ShK5G-rdCd45R/view?usp=sharing",
+            external: true,
+          },
+        ],
+      },
+      {
+        type: "ctas",
+        heading: "24/7 Portal Access",
+        items: [
+          { label: "Owner login", href: OWNER_LOGIN, external: true },
+          { label: "Resident login", href: RESIDENT_LOGIN, external: true },
+        ],
+      },
+    ],
+  },
 };
 
 export function getServicePage(slug: string): ServicePageContent | undefined {
