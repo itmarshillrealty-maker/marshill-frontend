@@ -122,7 +122,7 @@ export default function SiteHead() {
         .property-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
         .property-card{ cursor:pointer; display:block; }
         .property-card .thumb{ position:relative; }
-        .property-card img{ height:180px; object-fit:cover; border-radius:8px; width:100%; background:var(--blue-pale); }
+        .property-card img{ width:100%; aspect-ratio:4/3; height:auto; object-fit:cover; border-radius:8px; background:var(--blue-pale); }
         .property-status{ position:absolute; top:10px; left:10px; font-size:10px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; padding:4px 10px; border-radius:4px; color:#fff; background:var(--blue); }
         .property-card .city{ font-size:14px; font-weight:600; color:var(--ink); margin-top:12px; }
         .property-card .type{ font-size:12px; color:var(--ink-soft); margin-top:2px; }
