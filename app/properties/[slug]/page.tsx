@@ -5,6 +5,7 @@ import { getAllListings, getListingBySlug } from "@/lib/wp";
 import SiteHead from "@/components/SiteHead";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 
 // Static export needs every possible /properties/[slug] known at build
 // time — this is the Next.js equivalent of the old site's single
@@ -24,10 +25,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const listing = await getListingBySlug(slug);
   if (!listing) return {};
-  return {
+  return pageMetadata({
     title: listing.title,
     description: listing.description.slice(0, 160),
-  };
+    path: `/properties/${slug}/`,
+    image: listing.image,
+  });
 }
 
 export default async function PropertyDetailPage({
@@ -49,6 +52,22 @@ export default async function PropertyDetailPage({
     <>
       <SiteHead />
       <SiteHeader />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Homepage", path: "/" },
+              {
+                name: listing.statusLabel,
+                path: isVacationRental ? "/#vacation-rentals" : "/#properties",
+              },
+              { name: listing.title, path: `/properties/${slug}/` },
+            ])
+          ),
+        }}
+      />
 
       <div
         className="listing-hero"

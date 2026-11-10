@@ -60,8 +60,35 @@ export default function SiteHeader() {
                 </div>
               </div>
             </div>
-            <a href="#">Residents <i className="ti ti-chevron-down" /></a>
-            <a href="#">Partner Club <i className="ti ti-chevron-down" /></a>
+            <div className="nav-dropdown">
+              <a href="#">Residents <i className="ti ti-chevron-down" /></a>
+              <div className="nav-dropdown-menu">
+                <div className="nav-dropdown-menu-inner">
+                  <Link href="/service/maintenance-troubleshooting">Maintenance Troubleshooting</Link>
+                  <Link href="/service/emergency-after-hours">Emergency After Hours Assistance</Link>
+                  <Link href="/service/resident-portal-login">Resident Portal Login</Link>
+                  <Link href="/service/submit-a-work-order">Submit a Work Order</Link>
+                  <Link href="/service/tenant-program">Submit Insurance Claim</Link>
+                  <Link href="/service/move-in-procedures">Move In Procedures</Link>
+                  <Link href="/service/move-out-procedures">Move Out Procedures</Link>
+                  <Link href="/service/approved-vendors">Approved Vendors</Link>
+                </div>
+              </div>
+            </div>
+            <div className="nav-dropdown">
+              <a href="#">Partner Club <i className="ti ti-chevron-down" /></a>
+              <div className="nav-dropdown-menu">
+                <div className="nav-dropdown-menu-inner">
+                  <Link href="/service/partner-club-overview">Program Overview</Link>
+                  <Link href="/service/owner-program">Owner Program</Link>
+                  <Link href="/service/tenant-program">Tenant Program</Link>
+                  <Link href="/service/vendor-program">Vendor Program</Link>
+                  <Link href="/service/referral-partner-program">Referral Partner Program</Link>
+                  <Link href="/service/leasing-agents">Leasing Agents</Link>
+                  <Link href="/service/referral-agents">Referral Agents</Link>
+                </div>
+              </div>
+            </div>
             <a href="#">Rental Listings <i className="ti ti-chevron-down" /></a>
             <a href="#">Mars Meals</a>
           </nav>

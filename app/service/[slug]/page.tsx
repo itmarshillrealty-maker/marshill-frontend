@@ -5,6 +5,7 @@ import { getServicePage, getAllServiceSlugs } from "@/lib/servicePages";
 import SiteHead from "@/components/SiteHead";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import { pageMetadata, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 
 // Static export needs every /service/[slug] known at build time.
 export async function generateStaticParams() {
@@ -19,10 +20,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const page = getServicePage(slug);
   if (!page) return {};
-  return {
+  return pageMetadata({
     title: page.title,
     description: page.metaDescription,
-  };
+    path: `/service/${slug}/`,
+    image: page.heroImage,
+  });
 }
 
 export default async function ServicePage({
@@ -34,10 +37,32 @@ export default async function ServicePage({
   const page = getServicePage(slug);
   if (!page) notFound();
 
+  const faqItems = page.sections
+    .filter((s): s is Extract<typeof page.sections[number], { type: "faq" }> => s.type === "faq")
+    .flatMap((s) => s.items.map((item) => ({ q: item.q, a: item.a })));
+
   return (
     <>
       <SiteHead />
       <SiteHeader />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Homepage", path: "/" },
+              { name: page.title, path: `/service/${slug}/` },
+            ])
+          ),
+        }}
+      />
+      {faqItems.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(faqItems)) }}
+        />
+      )}
 
       <div
         className="listing-hero"

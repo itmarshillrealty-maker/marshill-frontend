@@ -484,6 +484,606 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
       },
     ],
   },
+
+  // --- Partner Club -----------------------------------------------------
+  // NOTE: hero images below are hot-linked straight from production
+  // (www.marshillpropertymanagement.com) rather than the beta media
+  // library convention used above — confirm these specific files were
+  // migrated into beta's own wp-content/uploads before go-live, same as
+  // the other pages' images.
+
+  "partner-club-overview": {
+    slug: "partner-club-overview",
+    title: "Partner Club",
+    metaDescription:
+      "The Mars Hill Partner Club rewards owners, residents, vendors, and referral partners for being part of the Mars Hill Realty Group community.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/06/Partner-Club-Referal-Partner-Program-Dropdown-Preferred-Leasing-Agents-Suggested-Crop-scaled.jpg",
+    intro: [
+      "Managing properties isn't just about buildings, it's about building community. The Mars Hill Partner Club is how we recognize everyone who makes that community work: owners, residents, vendors, and the agents who refer business our way.",
+      "Members get real guarantees and benefit packages, vendors who join our Alliance Agreement get priority work and faster pay (we pay within 30 days), and we focus our vendor network on the top three providers in each service category so quality stays high.",
+      "Take a deeper look at the relationship that applies to you below, and join the club.",
+    ],
+    sections: [
+      {
+        type: "ctas",
+        heading: "Choose Your Program",
+        items: [
+          { label: "Owner Program", href: "/service/owner-program/" },
+          { label: "Tenant Program", href: "/service/tenant-program/" },
+          { label: "Vendor Program", href: "/service/vendor-program/" },
+          { label: "Referral Partner Program", href: "/service/referral-partner-program/" },
+        ],
+      },
+      {
+        type: "video",
+        heading: "See How It Works",
+        youtubeId: "dVgKniedz-I",
+        title: "Mars Hill Partner Club overview",
+      },
+    ],
+  },
+
+  "owner-program": {
+    slug: "owner-program",
+    title: "Owner Program",
+    metaDescription:
+      "Mars Hill Realty Group's Owner Program has two membership levels, Investor and Landlord, each with real guarantees that protect your investment.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/06/Mars-Hill-Club-for-Owners-Image-Suggested-Crop-scaled.jpg",
+    intro: [
+      "The Partner Club has two owner membership levels. Fees are charged monthly, starting when your management contract starts.",
+    ],
+    sections: [
+      {
+        type: "paragraphs",
+        heading: "Investor Level — $16/month",
+        paragraphs: [
+          "All new owners are enrolled automatically at the Investor Level.",
+        ],
+      },
+      {
+        type: "bullets",
+        heading: "Investor Level Guarantees",
+        items: [
+          "Tenant Replacement: a replacement tenant with waived leasing fees if a tenant leaves early for a reason the lease doesn't allow.",
+          "100% Satisfaction: cancel with 60 days' notice, no questions asked.",
+          "Rented in 60 Days: a new tenant within 60 days of vacancy, or your first month's management fee is credited.",
+          "Property Peace of Mind: a $500 credit toward damage that can't be recovered from the tenant.",
+          "Eviction Free: eviction costs covered up to $1,000 after a non-payment judgment.",
+        ],
+      },
+      {
+        type: "bullets",
+        heading: "Investor Level Services",
+        items: [
+          "Professional photography and videography of your listing.",
+          "24/7 owner portal access.",
+          "Access to our vetted vendor network.",
+          "A newsletter with vendor discounts.",
+          "A free rental analysis for future investments.",
+          "Office line monitored weekdays and weekends, 8am to 5pm CST.",
+          "A 24-hour emergency maintenance hotline.",
+        ],
+      },
+      {
+        type: "bullets",
+        heading: "Investor-Only Perks",
+        items: [
+          "10% off Mars Hill maintenance.",
+          "Bi-monthly filter delivery.",
+          "Investor-exclusive vendor discounts.",
+          "A $175 credit toward temporary A/C or heat equipment in an emergency.",
+          "The option to request a third bid on major repairs.",
+          "A portfolio consultation.",
+          "Priority access to investor-grade properties.",
+          "Exclusive payment terms on expense balances.",
+          "5% to 50% off the nightly rate at Mars Hill's own vacation rentals.",
+        ],
+      },
+      {
+        type: "paragraphs",
+        heading: "Landlord Level",
+        paragraphs: [
+          "Owners who opt out of the Investor Level perks are enrolled at the Landlord Level instead, at no fee. You still get the Tenant Replacement and 100% Satisfaction guarantees, professional photography, 24/7 owner portal access, vendor network access, our newsletter, a free rental analysis, and 5% off maintenance.",
+          "Deductibles and other limitations may apply to the guarantees above.",
+        ],
+      },
+      {
+        type: "video",
+        heading: "More About The Owner Program",
+        youtubeId: "XoMzM21Oz3Q",
+        title: "Mars Hill Owner Program",
+      },
+      {
+        type: "ctas",
+        heading: "24/7 Portal Access",
+        items: [
+          { label: "Owner login", href: OWNER_LOGIN, external: true },
+          { label: "Resident login", href: RESIDENT_LOGIN, external: true },
+        ],
+      },
+    ],
+  },
+
+  "tenant-program": {
+    slug: "tenant-program",
+    title: "Tenant Program",
+    metaDescription:
+      "Mars Hill Realty Group's resident insurance benefit packages cover liability and contents, plus perks like a 24-hour work order hotline and maintenance discounts.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/06/Partners-Dropdown-Tenant-Program-Page-Replacement-Suggested-Crop-scaled.jpg",
+    intro: [],
+    sections: [
+      {
+        type: "paragraphs",
+        heading: "Option A: Master Insurance Benefits Package — $40/month",
+        paragraphs: [
+          "Covers $100,000 in renters liability and $10,000 in contents, with an easy claims process. Add-on protections are available: $1,500 pet damage, $1,000 bed bug, $500 mold remediation, and $1,000 loss of rental income.",
+          "Claims assistance: 888-814-6950, Option 2.",
+        ],
+      },
+      {
+        type: "ctas",
+        items: [
+          {
+            label: "Submit Contents Claim",
+            href: "https://www.apenroll.com/Claim_Submission.aspx",
+            external: true,
+          },
+        ],
+      },
+      {
+        type: "bullets",
+        heading: "Option A Benefits",
+        items: [
+          "Newsletter with vendor discounts.",
+          "Monthly filters where applicable.",
+          "24-hour emergency work order hotline.",
+          "A pre-move-in walkthrough and orientation.",
+          "Eligibility for our rent assistance program.",
+          "Grace Pass: one-time forgiveness of a returned payment or late fee.",
+          "24/7 resident portal access.",
+          "Renter to Owner Concierge: homebuying consultation plus a monthly commission credit toward a home purchase if Mars Hill represents you as the buyer.",
+          "10% off maintenance.",
+        ],
+      },
+      {
+        type: "paragraphs",
+        heading: "Option B: Tenant Insurance Benefits Package — $35/month",
+        paragraphs: [
+          "For residents who'd rather carry their own renters insurance instead of Mars Hill's coverage. If you choose this option, your policy must meet these requirements:",
+        ],
+      },
+      {
+        type: "bullets",
+        heading: "Option B Requirements",
+        items: [
+          "Proof of renters insurance provided before move-in.",
+          "At least $100,000 in general liability coverage.",
+          "Mars Hill Realty Group, Inc. and the property owner named as additional interest.",
+          "Coverage maintained for the full lease term and any renewals — a lapse can lead to eviction.",
+          "Your insurer emails us the Declarations page before your pre-move-in walkthrough; keys and codes aren't released until it arrives.",
+        ],
+      },
+      {
+        type: "paragraphs",
+        paragraphs: [
+          "Option B includes the same benefits listed above, at 5% off maintenance with a smaller monthly commission credit toward a home purchase.",
+          "Deductibles and other limitations may apply.",
+        ],
+      },
+      {
+        type: "video",
+        heading: "More About The Tenant Program",
+        youtubeId: "XpGTsSxG8cE",
+        title: "Mars Hill Tenant Program",
+      },
+    ],
+  },
+
+  "vendor-program": {
+    slug: "vendor-program",
+    title: "Vendor Program",
+    metaDescription:
+      "Mars Hill Realty Group rates vendors on a five-star system and gives priority work, faster pay, and free advertising to vendors who join our Alliance Agreement.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/06/Prefered-Vendors-Page-Image-scaled.jpg",
+    intro: [
+      "We rate every vendor we work with on a five-star internal system. Priority work goes to the vendors with the highest professionalism and quality at reasonable prices, because we're looking for long-term relationships, not one-off jobs.",
+    ],
+    sections: [
+      {
+        type: "bullets",
+        heading: "Alliance Agreement Benefits",
+        items: [
+          "Newsletter discounts to our owners and residents.",
+          "Priority of work.",
+          "Free advertising.",
+          "Introductions to strategic partners.",
+          "A defined workflow with a documented escalation process.",
+        ],
+      },
+      {
+        type: "paragraphs",
+        paragraphs: [
+          "Want to join our Vendor Alliance? Email our service support team at Service@MarsHillRealty.com to get started.",
+        ],
+      },
+      {
+        type: "video",
+        youtubeId: "3r_BgfTar78",
+        title: "Mars Hill Vendor Program",
+      },
+    ],
+  },
+
+  "referral-partner-program": {
+    slug: "referral-partner-program",
+    title: "Referral Partner Program",
+    metaDescription:
+      "Real estate agents who refer management clients to Mars Hill Realty Group earn a referral fee, and we refer that client back to you when they buy or sell.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/06/Partner-Club-Referal-Partner-Program-Dropdown-Preferred-Leasing-Agents-Suggested-Crop-scaled.jpg",
+    intro: [
+      "Referral partners are our champions, whether that's referring a landlord directly or introducing us to someone who needs a property manager. We stay in touch through our newsletter and make strategic vendor introductions along the way.",
+      "Licensed real estate agents who refer a management client earn a referral fee, and we refer that client back to you when they're ready to buy or sell. Leasing agents can also receive our leads as a Preferred Leasing Agent.",
+    ],
+    sections: [
+      {
+        type: "ctas",
+        items: [
+          { label: "Leasing Agents", href: "/service/leasing-agents/" },
+          { label: "Referral Agents", href: "/service/referral-agents/" },
+        ],
+      },
+      {
+        type: "video",
+        youtubeId: "AAFueVQRPOY",
+        title: "Mars Hill Referral Partner Program",
+      },
+    ],
+  },
+
+  "leasing-agents": {
+    slug: "leasing-agents",
+    title: "Leasing Agents",
+    metaDescription:
+      "Mars Hill Realty Group relies on agent partners to show available rentals, sending out 30 to 50 leads a month to our leasing agent community.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/06/Partner-Club-Referal-Partner-Program-Dropdown-Preferred-Leasing-Agents-Suggested-Crop-scaled.jpg",
+    intro: [
+      "We rely on agent partners to show our available rentals, and we receive about 30 to 50 leads a month. Many of those leads are already pre-qualified through our Prequalify to View Homes process.",
+    ],
+    sections: [
+      {
+        type: "steps",
+        heading: "How We Process Leads",
+        items: [
+          {
+            title: "1. We Log The Lead",
+            text: "Our support team logs every lead in a tracking spreadsheet, including the property address, the date received, and whether the prospect is already pre-qualified.",
+          },
+          {
+            title: "2. We Send It To Our Agent Partners",
+            text: "The lead goes out to our agent partner community.",
+          },
+          {
+            title: "3. An Agent Claims It",
+            text: "An interested agent replies by email and keeps the spreadsheet updated as the relationship progresses, which is what keeps agent commissions paid on time.",
+          },
+        ],
+      },
+      {
+        type: "ctas",
+        heading: "Join Our Leasing Agent List",
+        items: [
+          {
+            label: "Preferred Leasing Agent Agreement",
+            href: "https://drive.google.com/file/d/1S7C-2STDAx_KpXs8ttOiEK2F9SkORv_0/view?usp=sharing",
+            external: true,
+          },
+        ],
+      },
+    ],
+  },
+
+  "referral-agents": {
+    slug: "referral-agents",
+    title: "Referral Agents",
+    metaDescription:
+      "Real estate agents who refer a management client to Mars Hill Realty Group earn a referral fee, and keep their buyer or seller relationship intact.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/06/Partner-Club-Referal-Partner-Program-Dropdown-Preferred-Leasing-Agents-scaled.jpg",
+    intro: [
+      "We know agents worry about handing off a client to a property manager: will that manager represent your brand well, and will you stay the trusted contact when that client is ready to buy or sell? Here's how we handle that relationship.",
+    ],
+    sections: [
+      {
+        type: "bullets",
+        heading: "Why Agents Refer To Us",
+        items: [
+          "Return On Time Invested: you stay focused on your core business while we become your client's single point of contact for buying, selling, and managing.",
+          "Trust: clients who want to buy or sell are referred back to the agent who sent them to us, tracked in our own database — and we maintain a property-to-employee ratio of about 25:1 with an eviction rate under 1%.",
+          "Communication: owners, residents, and agents all stay in the loop through our portals and database, so nothing falls through the cracks.",
+          "Experience: decades of industry experience, with a team that averages eight years with the company.",
+        ],
+      },
+      {
+        type: "paragraphs",
+        paragraphs: [
+          "As a thank-you, referring agents receive one month's management fee when their referral becomes a managed property.",
+        ],
+      },
+      {
+        type: "ctas",
+        items: [{ label: "For more information, contact us today!", href: "/#contact" }],
+      },
+      {
+        type: "video",
+        youtubeId: "AAFueVQRPOY",
+        title: "Mars Hill Referral Agents",
+      },
+    ],
+  },
+
+  // --- Residents (current-residents branch) ------------------------------
+
+  "maintenance-troubleshooting": {
+    slug: "maintenance-troubleshooting",
+    title: "Maintenance Troubleshooting",
+    metaDescription:
+      "Common maintenance issues residents can troubleshoot themselves, and which ones count as emergencies that need our 24-hour hotline.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/05/Maintenance-Troubleshooting-Page-Image-scaled.jpg",
+    intro: [
+      "All work orders must be submitted through your resident portal, per your lease — that's the fastest way to get a maintenance team member assigned. This guide is meant to help you solve common issues yourself and recognize which ones are time-sensitive.",
+      "This guide is informational only. You're responsible for your own safety when deciding how to handle an issue, and Mars Hill Realty Group isn't liable for losses that result from following it. When in doubt, or for anything life- or health-threatening, call 911 first and then our 24-hour emergency maintenance hotline.",
+    ],
+    sections: [
+      {
+        type: "bullets",
+        heading: "Common Issues By Category",
+        items: [
+          "Appliances: garbage disposal not working, dishwasher not coming on, dishwasher clogged.",
+          "Electrical: a switch or outlet not working, a hard-wired smoke detector alarming, an automatic garage door that won't close, or any electrical hazard (potential emergency).",
+          "Gas: the smell of gas (potential emergency — call 911 first, then us).",
+          "HVAC: system not coming on, poor airflow, not cooling properly, no heat below 32°F (potential emergency), or no A/C above 90°F (potential emergency).",
+          "Plumbing: clogged toilets or drains, low water pressure, leaks, ceiling leaks, an unusable bathroom, an uncontainable leak, running sprinklers indoors, water heater failure, or a sewer backup (all potential emergencies except low pressure and minor leaks).",
+          "Security: a break-in or burglary (call 911 first), being locked out, a broken door or window, an alarm that won't turn off, or a broken fence with a pet safety concern.",
+          "Structural: an active fire (call 911 first), storm damage to the roof, or fallen tree limbs on the property.",
+        ],
+      },
+      {
+        type: "ctas",
+        heading: "Need To Report Something?",
+        items: [
+          { label: "Submit a Work Order", href: "/service/submit-a-work-order/" },
+          {
+            label: "24-Hour Emergency Hotline",
+            href: "tel:5126886476",
+            external: true,
+          },
+        ],
+      },
+    ],
+  },
+
+  "emergency-after-hours": {
+    slug: "emergency-after-hours",
+    title: "Emergency After Hours",
+    metaDescription:
+      "What counts as a maintenance emergency at Mars Hill Realty Group, and how to reach our 24-hour emergency maintenance hotline.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/05/Emergency-After-Hours-Assistance-Page-Image-scaled.jpg",
+    intro: [
+      "Any time-sensitive work order that may be an emergency should be phoned in directly to our Emergency Maintenance Hotline at 512-688-6476, any time, day or night.",
+    ],
+    sections: [
+      {
+        type: "paragraphs",
+        heading: "What Counts As An Emergency",
+        paragraphs: [
+          "Time-sensitive work orders get a response as soon as the request comes in. We define an emergency as anything potentially life- or health-threatening:",
+        ],
+      },
+      {
+        type: "bullets",
+        heading: "Emergencies By Category",
+        items: [
+          "Security: an active fire or a break-in (call 911 first), a broken door or window that can't be secured on the first floor, an alarm that won't stop sounding, running sprinklers indoors, or a broken fence with a dangerous pet situation.",
+          "Structural: storm damage to the roof with potential water penetration.",
+          "Plumbing: an unusable bathroom, burst supply lines, water heater failure or no water, or a sewer backup into the home.",
+          "Electrical: a high-voltage hazard.",
+          "HVAC: no heat when it's below 32°F, or no A/C when it's above 90°F.",
+        ],
+      },
+      {
+        type: "bullets",
+        heading: "What's Not An Emergency",
+        items: ["Noisy neighbors.", "Being locked out of your home."],
+      },
+    ],
+  },
+
+  "resident-portal-login": {
+    slug: "resident-portal-login",
+    title: "Resident Portal Login",
+    metaDescription:
+      "Mars Hill Realty Group residents get a personalized portal to submit work orders, pay rent, view statements, and access lease documents.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/05/Maintenance-Troubleshooting-Page-Image-scaled.jpg",
+    intro: [
+      "We built a personalized portal so you can manage your lease on your own schedule. Log in below, or for help with portal access or usage, contact the Propertyware helpdesk at 1-855-473-7729, Option 2 (residents only).",
+    ],
+    sections: [
+      {
+        type: "bullets",
+        heading: "What You Can Do From The Resident Portal",
+        items: [
+          "Submit work orders.",
+          "Pay rent and set up auto-pay.",
+          "Access your monthly statements.",
+          "View a photo database from walk-throughs.",
+          "Review your ledger and pay any balance.",
+          "Give notice when your lease is ending.",
+          "Access your lease, your renters insurance on file, and other property documents.",
+        ],
+      },
+      {
+        type: "ctas",
+        heading: "24/7 Portal Access",
+        items: [
+          { label: "Resident Portal Login", href: RESIDENT_LOGIN, external: true },
+          { label: "Owner login", href: OWNER_LOGIN, external: true },
+        ],
+      },
+    ],
+  },
+
+  "submit-a-work-order": {
+    slug: "submit-a-work-order",
+    title: "Submit A Work Order",
+    metaDescription:
+      "How to submit a maintenance work order at Mars Hill Realty Group, our response times, and the repair deductible that applies.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/05/Emergency-After-Hours-Assistance-Page-Image-scaled.jpg",
+    intro: [
+      "Before you submit, check our Maintenance Troubleshooting guide — a quick fix there could save you the repair deductible. Ready to submit? Use the button below.",
+    ],
+    sections: [
+      {
+        type: "ctas",
+        items: [
+          {
+            label: "Submit a Work Order",
+            href: "https://app.propertymeld.com/login/?next=/",
+            external: true,
+          },
+        ],
+      },
+      {
+        type: "paragraphs",
+        heading: "How To Submit A Work Order",
+        paragraphs: [
+          "Work orders must be submitted through the online portal; calling in is optional, and only for emergencies. A portal submission automatically alerts our maintenance team and your owner. If you have trouble with the portal itself, contact the Propertyware helpdesk at 1-855-473-7729, Option 2.",
+        ],
+      },
+      {
+        type: "paragraphs",
+        heading: "Response Times And Access",
+        paragraphs: [
+          "We acknowledge every work order by noon the next business day. If an in-house technician is assigned, you'll get 12 to 24 hours' notice and remote access can be arranged. If an outside vendor is assigned, you'll have their contact information by the end of the next business day, and vendors are expected to respond within 24 hours.",
+          "If you're unresponsive to an assigned vendor for 7 days, a $70 administration fee applies. For time-sensitive jobs that need same-day access without you present, a $100 administration fee plus $75/hour applies for a walkthrough technician to let the vendor in.",
+        ],
+      },
+      {
+        type: "paragraphs",
+        heading: "Repair Deductible",
+        paragraphs: [
+          "A repair deductible, typically $25 to $100 per your lease, applies to every work order. If a repair is 100% caused by resident damage, the full cost is billed to the resident instead.",
+        ],
+      },
+    ],
+  },
+
+  "move-in-procedures": {
+    slug: "move-in-procedures",
+    title: "Move In Procedures",
+    metaDescription:
+      "What to expect from Mars Hill Realty Group's pre-move-in and 1-week post-move-in walkthroughs.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/05/Emergency-After-Hours-Assistance-Page-Image-scaled.jpg",
+    intro: [],
+    sections: [
+      {
+        type: "steps",
+        heading: "Your Two Move-In Walkthroughs",
+        items: [
+          {
+            title: "Pre Move-In Walkthrough (2 days before move-in)",
+            text: "We confirm your utilities, deposits, and renters insurance are all in place, walk through key home components (filters, smoke detectors, shut-offs, breakers, and the HVAC condensate line), and confirm there are no emergencies since the home is rented as-is. Keys and/or your smart-lock code are released by our office staff, not the walkthrough technician — rekeying the mailbox is the resident's responsibility. We don't schedule walkthroughs on major holidays, and weekend scheduling carries a $200 fee.",
+          },
+          {
+            title: "1-Week Post Move-In Walkthrough",
+            text: "Document any defects on the Texas TAR Inventory and Condition Form or the VA/MD/DC GCAAR Property Inspection Report within your first 5 to 7 days. Our staff then does their own walkthrough, photographs the home, and uploads the signed report to your portal. An incomplete report triggers a $50 trip charge, and any defect not listed on your form becomes your responsibility at move-out.",
+          },
+        ],
+      },
+    ],
+  },
+
+  "move-out-procedures": {
+    slug: "move-out-procedures",
+    title: "Move Out Procedures",
+    metaDescription:
+      "Mars Hill Realty Group's move-out walkthrough process and how your security deposit is handled.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/05/Emergency-After-Hours-Assistance-Page-Image-scaled.jpg",
+    intro: [],
+    sections: [
+      {
+        type: "bullets",
+        heading: "Post Move-Out Walkthrough",
+        items: [
+          "Move out by 11:59pm on your lease end date.",
+          "Return all keys, fobs, pool and parking passes, and garage openers to our office in a labeled bag during business hours.",
+          "We do our walkthrough within 48 hours and compare it against your move-in form. You're welcome to attend, just let our office know in advance.",
+          "We don't do walkthroughs on holidays or weekends.",
+        ],
+      },
+      {
+        type: "bullets",
+        heading: "Security Deposit",
+        items: [
+          "Your deposit amount was set at application approval and is stated in your lease.",
+          "A lease breach or unreimbursed charges can lead to lease termination, with costs taken from your deposit.",
+          "We itemize any deductions within 30 days of move-out — without a forwarding address on file, we can't send an itemization or a refund.",
+          "Your deposit can't be applied toward your last month's rent.",
+          "No interest accrues on security deposits.",
+        ],
+      },
+    ],
+  },
+
+  "approved-vendors": {
+    slug: "approved-vendors",
+    title: "Approved Vendors",
+    metaDescription:
+      "Mars Hill Realty Group's approved vendor list for Texas and Virginia residents — carpet cleaning, home cleaning, and locksmith services.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/05/Maintenance-Troubleshooting-Page-Image-scaled.jpg",
+    intro: [
+      "Need a vendor for something that's on you, not us, like routine carpet cleaning at move-out? Here's who we recommend. Let carpet cleaners know if you have pets so they can apply an odor treatment, and let any locksmith know the property is Mars Hill-managed so billing and our key system stay in sync.",
+    ],
+    sections: [
+      {
+        type: "bullets",
+        heading: "Approved Vendors — Texas",
+        items: [
+          "Carpet cleaning: Diamondback Cleaners, (512) 864-4023.",
+          "Carpet cleaning: Steamers Carpet Care, (512) 573-8552.",
+          "Carpet cleaning: Tru Carpet Cleaning, (512) 930-7721.",
+          "Home cleaning: Love Bug Cleaning Crew, (512) 979-5126.",
+          "Home cleaning: Empire JXJ, (512) 912-6292.",
+          "Locksmith: Mr. Rekey Locksmith Service, (512) 929-5397.",
+        ],
+      },
+      {
+        type: "bullets",
+        heading: "Approved Vendors — Virginia",
+        items: [
+          "Carpet cleaning: Stainbusters Carpet Cleaning, (571) 243-1525.",
+          "Carpet cleaning: Neighborhood Cleaning Services, (703) 592-9052.",
+          "Carpet cleaning: APT Carpet Cleaners, (703) 379-4315.",
+          "Home cleaning: You've Got Maids, (571) 732-2199.",
+          "Home cleaning: Two Maids and a Mop, (703) 910-3600.",
+          "Home cleaning: Fast Maid Service, (703) 559-4555 — not for carpet cleaning. $125/hour regular rate, discounted to $95/hour with our Master Insurance package or $100/hour with the Tenant Insurance package.",
+          "Locksmith: Baldino's Lock & Key, (703) 378-3555.",
+        ],
+      },
+    ],
+  },
 };
 
 export function getServicePage(slug: string): ServicePageContent | undefined {

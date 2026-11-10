@@ -3,12 +3,14 @@ import Link from "next/link";
 import SiteHead from "@/components/SiteHead";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Our Company",
   description:
     "Mars Hill Realty Group is a locally owned, full-service real estate and property management company serving Central Texas and Northern Virginia since 2003.",
-};
+  path: "/company/",
+});
 
 const MARS_VALUES = [
   {

@@ -4,12 +4,14 @@ import { getTeamMembers } from "@/lib/wp";
 import SiteHead from "@/components/SiteHead";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Team Members",
   description:
     "Meet the Mars Hill Realty Group team — property managers, brokers, and support staff across Virginia and Texas.",
-};
+  path: "/team/",
+});
 
 export default async function TeamPage() {
   const team = await getTeamMembers();

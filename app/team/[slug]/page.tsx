@@ -6,6 +6,7 @@ import SiteHead from "@/components/SiteHead";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import TeamContactForm from "@/components/TeamContactForm";
+import { pageMetadata, breadcrumbJsonLd } from "@/lib/seo";
 
 // Static export needs every possible /team/[slug] known at build time.
 export async function generateStaticParams() {
@@ -21,12 +22,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const member = await getTeamMemberBySlug(slug);
   if (!member) return {};
-  return {
+  return pageMetadata({
     title: member.name,
     description: member.role
       ? `${member.name} — ${member.role} at Mars Hill Realty Group.`
       : `${member.name} at Mars Hill Realty Group.`,
-  };
+    path: `/team/${slug}/`,
+    image: member.image,
+  });
 }
 
 const SOCIAL_ICON: Record<string, string> = {
@@ -52,6 +55,19 @@ export default async function TeamMemberPage({
     <>
       <SiteHead />
       <SiteHeader />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Homepage", path: "/" },
+              { name: "Team Members", path: "/team/" },
+              { name: member.name, path: `/team/${slug}/` },
+            ])
+          ),
+        }}
+      />
 
       <div
         className="listing-hero"
