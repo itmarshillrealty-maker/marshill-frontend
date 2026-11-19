@@ -1046,6 +1046,333 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
     ],
   },
 
+  "resident-selection-criteria": {
+    slug: "resident-selection-criteria",
+    title: "Resident Selection Criteria",
+    metaDescription:
+      "Mars Hill Realty Group's resident selection criteria, covering rental history, income, credit, employment, and background requirements.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/05/Prospective-Tenants-Page-Image-Suggested-Crop-scaled.jpg",
+    intro: [
+      "We're committed to fair housing law and the Realtor and NARPM codes of ethics. Here's what we look at when reviewing an application.",
+    ],
+    sections: [
+      {
+        type: "bullets",
+        heading: "What We Require",
+        items: [
+          "Rental history: a positive history with no evictions, broken leases, or outstanding balances. We verify your two previous residential addresses.",
+          "Income: gross monthly income at least three times your total monthly debt, verified with three months of pay statements (or tax returns if self-employed). Without sufficient income, we look at six months of bank statements showing an average balance equal to six months of rent, plus the last two months of rent paid before move-in.",
+          "AI score: a minimum score of 700 out of 1000, from our applicant screening software.",
+          "Credit: a credit score of 620 or above. Below that, we look case by case at write-offs, collections, bankruptcies, late payments, and money owed to prior landlords or utilities.",
+          "Employment: at least 2 years at the same job, or in the same industry if you're self-employed.",
+          "Criminal history: no felony or drug conviction within the past seven years, and not a registered sex offender.",
+          "Identification: a Social Security number, or an ITIN plus either a positive third-party credit check or a guarantor (with owner approval).",
+          "Pets: varies by property and owner, see the individual listing. We don't accept Pit Bull/Terrier or Rottweiler breeds, and any bite or attack history must be disclosed.",
+          "Occupancy: no more than two occupants per bedroom, per HUD guidelines.",
+        ],
+      },
+      {
+        type: "paragraphs",
+        paragraphs: [
+          "Criteria not met may still be approved case by case, often with an increased security deposit or advance rent.",
+          "This is a summary. For the full policy language, see the Resident Handbook.",
+        ],
+      },
+      {
+        type: "ctas",
+        items: [
+          { label: "Prequalify to View Homes", href: "/service/prequalify-to-view-homes/" },
+          { label: "Apply to Rent Now", href: "/service/apply-to-rent-now/" },
+        ],
+      },
+    ],
+  },
+
+  "prequalify-to-view-homes": {
+    slug: "prequalify-to-view-homes",
+    title: "Prequalify to View Homes",
+    metaDescription:
+      "Prequalify to tour a Mars Hill Realty Group rental in Northern Virginia or Austin, Texas. We get 500+ showing requests a month, so every prospect is prequalified first.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/05/Prequalify-to-View-Homes-Page-Image-Suggested-Crop-scaled.jpg",
+    intro: [
+      "We get over 500 requests a month to show homes, so every prospect needs to be prequalified before we schedule a tour. If you're working with your own real estate agent, you're exempt, your agent handles this for you.",
+    ],
+    sections: [
+      {
+        type: "bullets",
+        heading: "Prequalification Criteria",
+        items: [
+          "You're not currently breaking a lease, and you're ready to move within 60 days (or 2 weeks for a vacant home).",
+          "No eviction in your rental history.",
+          "Your total monthly income is at least three times your total monthly debt, including the rent you're applying for.",
+          "You've reviewed and agree to the terms of our Resident Handbook.",
+          "You're not currently represented by another real estate agent.",
+        ],
+      },
+      {
+        type: "paragraphs",
+        paragraphs: [
+          "If you meet the criteria above, call or email us and we'll get you scheduled, we aim to follow up by noon the next business day. The same goes if you just have a question about a property.",
+        ],
+      },
+      {
+        type: "ctas",
+        heading: "Get In Touch",
+        items: [
+          { label: "Email: Leads@MarsHillRealty.com", href: "mailto:Leads@MarsHillRealty.com", external: true },
+          { label: "Call (VA)", href: "tel:7037769223", external: true },
+          { label: "Call (TX)", href: "tel:5129420024", external: true },
+          { label: "Resident Selection Criteria", href: "/service/resident-selection-criteria/" },
+        ],
+      },
+    ],
+  },
+
+  "apply-to-rent-now": {
+    slug: "apply-to-rent-now",
+    title: "Apply to Rent Now",
+    metaDescription:
+      "How to apply for a Mars Hill Realty Group rental: holding fee, application fee, required documents, and how to submit your residential lease application.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/05/Apply-To-Rent-Now-Page-Image-Suggested-Crop--scaled.jpg",
+    intro: [
+      "Homes are rented as-is and must be seen in person before you apply, applications are only processed after an in-person viewing. Questions? Email Applications@MarsHillRealty.com or call 512.368.2601 / 512.368.2541.",
+    ],
+    sections: [
+      {
+        type: "steps",
+        heading: "How To Apply",
+        items: [
+          {
+            title: "1. Pay The Holding Fee",
+            text: "Equal to one month's rent. We can't process your application without it. If approved, it becomes your first month's rent. If declined, it's refunded minus a 4% processing fee (about 7 business days). It becomes non-refundable if you don't sign the lease within 48 hours of approval. We accept ACH, certified funds, or card (4% fee); no cash or checks.",
+          },
+          {
+            title: "2. Pay The Application Fee",
+            text: "$50 for each applicant 18 or older, same payment options as the holding fee.",
+          },
+          {
+            title: "3. Review The Resident Handbook",
+            text: "Signing your application also signs the Authorization to Release Information and the Addendum A Agreement, confirming you've read the Resident Handbook.",
+          },
+          {
+            title: "4. Gather Your Documents",
+            text: "Photo ID for every applicant over 18. Income verification: W-2 employees need 3 months of pay stubs or LES; new hires need an offer letter; self-employed or retired applicants need last year's Form 1040 or pension statements plus 3 months of bank statements; otherwise, 6 months of bank statements. We also want 2 years of employment history (with a previous employer contact if under 2 years).",
+          },
+          {
+            title: "5. Submit Your Application",
+            text: "Every occupant 18 or older applies separately (as a co-applicant if not the lead applicant); occupants under 18 are listed as other applicants.",
+          },
+        ],
+      },
+      {
+        type: "ctas",
+        heading: "Ready To Apply",
+        items: [
+          {
+            label: "Fill Out Residential Lease Application",
+            href: "https://app.propertyware.com/pw/portals/marshillpropertymanagement/tenantApplication.action",
+            external: true,
+          },
+          {
+            label: "Pay Application Fee",
+            href: "https://square.link/u/evqJLFKT?src=embed",
+            external: true,
+          },
+          {
+            label: "Pay Holding Fee",
+            href: "https://square.link/u/XwlvvIY6?src=embed",
+            external: true,
+          },
+        ],
+      },
+      {
+        type: "paragraphs",
+        heading: "Paying By ACH Or In Person Instead",
+        paragraphs: [
+          "Cash or certified funds can be deposited at a Wells Fargo branch, or sent by ACH from your bank. We don't accept wire transfers or checks. Call or text 512.942.0050 for our bank details, and send your deposit confirmation to Accounting@MarsHillRealty.com.",
+        ],
+      },
+      {
+        type: "bullets",
+        heading: "Helpful Tips",
+        items: [
+          "Processing only starts once both fees are received, so pay promptly.",
+          "Rental verifications take 1 to 2 business days.",
+          "If multiple applications come in for the same home, the owner chooses the strongest one.",
+          "Refunds take about 7 business days, a third-party processor handles them.",
+          "Application fees and the 4% card processing fee are non-refundable.",
+        ],
+      },
+    ],
+  },
+
+  "forms-and-information-residents": {
+    slug: "forms-and-information-residents",
+    title: "Forms and Information",
+    metaDescription:
+      "Lease documents, disclosures, and renter packets for Mars Hill Realty Group residents in Virginia and Texas.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/05/Real-Estate-Forms-Page-Image-Suggested-Crop-scaled.jpg",
+    intro: [],
+    sections: [
+      {
+        type: "ctas",
+        heading: "Supporting Documents (If Applicable)",
+        items: [
+          {
+            label: "Assistive Animal Medical Provider Forms",
+            href: "https://drive.google.com/file/d/0B7poUtNMs2wMVU5DeE9vaFIxbTQ/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Sight Unseen Policy Exception Form",
+            href: "https://drive.google.com/file/d/1PvOb1-ol1P4XoWK2qDGneSguaQRRpOBl/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Setting Up Payments Through The Portal",
+            href: "https://drive.google.com/file/d/0B7poUtNMs2wMSzhOT1B6ODA3MUE/view?usp=sharing",
+            external: true,
+          },
+        ],
+      },
+      {
+        type: "ctas",
+        heading: "Virginia Renters Packet",
+        items: [
+          {
+            label: "Virginia Lease",
+            href: "https://drive.google.com/file/d/1YzeiNKPvIvKtpJ6wDMedYQy2SBWdqBaY/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Tenants Rights and Responsibilities",
+            href: "https://drive.google.com/file/d/1O-c8JzqZxk_OGtAHOIa9wBqSIMKU-DJJ/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Disclosure of Dual Agency",
+            href: "https://drive.google.com/file/d/1y3E7XvEsnAVU6HBJwSLjE_28FubAc2FT/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Disclosure of Designated Agency",
+            href: "https://drive.google.com/file/d/1nYWAUOiXlF82Leiy9dB60XSp97YzgNli/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Useful Info About Real Estate Transactions",
+            href: "https://drive.google.com/file/d/123XWcC4iZqOUSYwzwmPvINz5YWN6JTmO/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Pet Addendum",
+            href: "https://drive.google.com/file/d/1aKgHdaaR2plyYwoNUtk6x91YDgTLxNnb/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Guaranty of Lease",
+            href: "https://drive.google.com/file/d/1tfBHH9BnnBAHoxVvc_qjp_UhEkR35nOe/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Lead Based Paint Addendum",
+            href: "https://drive.google.com/file/d/1n3gERPUgcEaFOWhkZw4S5ss7NM6i4moT/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Protect Your Family From Lead Pamphlet",
+            href: "https://drive.google.com/file/d/1bGJCrSbX54hk5MoCNDrpLCrcfkGichHz/view?usp=share_link",
+            external: true,
+          },
+        ],
+      },
+      {
+        type: "ctas",
+        heading: "Texas Renters Packet",
+        items: [
+          {
+            label: "Texas Lease",
+            href: "https://drive.google.com/file/d/1yBJcYnyMWaDyVZcny6J2gtE08haligeb/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Information About Brokerage Services",
+            href: "https://drive.google.com/file/d/1N7Yg7GQDXw_o3rJsEWv6ipXq1-qXRoiB/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Animal Agreement",
+            href: "https://drive.google.com/file/d/1K5q4gtwRJ_G9UE5TxPXynDO8CF3Droqs/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Lease Guaranty",
+            href: "https://drive.google.com/file/d/1a3Um2JccLHCiJnr5FnBNn2tsh_wr2zxw/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Mold Consumer Protection",
+            href: "https://drive.google.com/file/d/1lR7oHNZt02k1cdzQI_yzmB5gsR5qzqBU/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Lead Based Paint Addendum",
+            href: "https://drive.google.com/file/d/1HUHflX42ME-Hew82EDQjo2E0Mmjhm0JI/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Protect Your Family From Lead Pamphlet",
+            href: "https://drive.google.com/file/d/13IgaAJKfihmamXqs-9PHrm9S8jyzGkBy/view?usp=share_link",
+            external: true,
+          },
+          {
+            label: "Response To Request For Assistive Animal",
+            href: "https://drive.google.com/file/d/1-_mPyr6okpgM3_h2rIe-D1zCXEu3e33o/view?usp=share_link",
+            external: true,
+          },
+        ],
+      },
+    ],
+  },
+
+  "resident-handbook": {
+    slug: "resident-handbook",
+    title: "Resident Handbook",
+    metaDescription:
+      "The Mars Hill Realty Group Resident Handbook — policies and procedures for residents, from move-in through move-out.",
+    heroImage:
+      "https://www.marshillpropertymanagement.com/wp-content/uploads/2020/05/Emergency-After-Hours-Assistance-Page-Image-scaled.jpg",
+    intro: [
+      "The Resident Handbook is our full policy document, covering everything from applying and moving in to day-to-day maintenance and moving out. It's maintained as a living document, so we keep it outside this site to make sure you're always reading the current version.",
+    ],
+    sections: [
+      {
+        type: "bullets",
+        heading: "What's Inside",
+        items: [
+          "Prior to moving in: as-is condition, leasing sight unseen, selection criteria, lease terms, the application process, fees, and your pre move-in walkthrough.",
+          "During your lease: the resident portal, communication, fees, maintenance procedures, rules and regulations, late rent, your ledger, and lease renewal or early termination.",
+          "Moving out: being contacted about showings, move-out guidelines, your move-out walkthrough, abandonment, and your security deposit.",
+          "A full summary of fees.",
+        ],
+      },
+      {
+        type: "ctas",
+        items: [
+          {
+            label: "Open The Resident Handbook",
+            href: "https://docs.google.com/document/d/1Alop9GIrLSiDif-ZveHsWoHYebplZaeFDViRe5MrT_I/edit",
+            external: true,
+          },
+        ],
+      },
+    ],
+  },
+
   "approved-vendors": {
     slug: "approved-vendors",
     title: "Approved Vendors",

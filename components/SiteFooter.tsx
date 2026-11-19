@@ -58,7 +58,7 @@ export default function SiteFooter() {
           </div>
           <div>
             <h4>Owners</h4>
-            <a href="#">Property management</a>
+            <Link href="/service/property-management">Property management</Link>
             <a
               href="https://app.propertyware.com/pw/index.html#/login/owner/marshillpropertymanagement"
               target="_blank"

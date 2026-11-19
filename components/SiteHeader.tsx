@@ -64,6 +64,10 @@ export default function SiteHeader() {
               <a href="#">Residents <i className="ti ti-chevron-down" /></a>
               <div className="nav-dropdown-menu">
                 <div className="nav-dropdown-menu-inner">
+                  <Link href="/service/prequalify-to-view-homes">Prequalify to View Homes</Link>
+                  <Link href="/service/apply-to-rent-now">Apply to Rent Now</Link>
+                  <Link href="/service/resident-selection-criteria">Resident Selection Criteria</Link>
+                  <Link href="/service/forms-and-information-residents">Forms and Information</Link>
                   <Link href="/service/maintenance-troubleshooting">Maintenance Troubleshooting</Link>
                   <Link href="/service/emergency-after-hours">Emergency After Hours Assistance</Link>
                   <Link href="/service/resident-portal-login">Resident Portal Login</Link>
@@ -72,6 +76,7 @@ export default function SiteHeader() {
                   <Link href="/service/move-in-procedures">Move In Procedures</Link>
                   <Link href="/service/move-out-procedures">Move Out Procedures</Link>
                   <Link href="/service/approved-vendors">Approved Vendors</Link>
+                  <Link href="/service/resident-handbook">Resident Handbook</Link>
                 </div>
               </div>
             </div>
